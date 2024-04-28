@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import NavBar from "@Components/Navbar";
-import { Spacer } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Spacer } from "@nextui-org/react";
 import PropertyCard from "@Components/PropertyCard";
 import data from "../assets/data/properties.json";
+import Hero from "@Components/Hero";
 const PropertyPage = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const handleOnSubmit = (value: string) => {
@@ -10,28 +11,29 @@ const PropertyPage = () => {
   };
   console.log("properties", data);
   return (
-    <div>
+    <div className="bg-[#F4F4F5]" style={{ backgroundColor: "#F4F4F5" }}>
       <NavBar onSubmit={handleOnSubmit} />
       <div className="flex flex-col mx-10">
-        <Spacer y={4} x={4} />
-        <h1 className=" mb-4 text-4xl font-semibold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white">
+        <h1 className="  text-4xl font-semibold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white">
           {searchValue}
         </h1>
-        <Spacer y={4} x={4} />
-        <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
-          {data.properties
-            .filter(
-              (property) =>
-                !searchValue ||
-                property.Property?.Address?.AddressText.toLocaleLowerCase().includes(
-                  searchValue.toLocaleLowerCase()
-                )
-            )
-            .map((property) => (
-              <div key={property?.Id}>
-                <PropertyCard property={property} />
-              </div>
-            ))}
+      </div>
+      <Hero property={data?.properties[0]?.Property} />
+      <Spacer y={6} x={4} />
+      <div className="flex justify-center content-center">
+        <div className="max-w-screen-lg w-full">
+          <Card
+            className="bg-[#E4E4E7] m-[24px] w-full"
+            style={{ backgroundColor: "#E4E4E7" }}
+          >
+            <CardHeader>
+              <p className="text-lg font-bold">Section Header</p>
+            </CardHeader>
+            <CardBody className="grid">
+              <Card className="grid grid-cols-6">1</Card>
+              <Card className="grid grid-cols-6">2</Card>
+            </CardBody>
+          </Card>
         </div>
       </div>
     </div>

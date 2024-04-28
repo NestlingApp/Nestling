@@ -4,7 +4,8 @@ const {nextui} = require("@nextui-org/theme");
 
 module.exports = {
   content: [
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "../../node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    './src/components/**/*.{js,jsx,ts,tsx}',
     './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {

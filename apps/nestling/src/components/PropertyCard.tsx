@@ -12,7 +12,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   return (
     <Card
       isFooterBlurred
-      className="w-full h-[300px] col-span-12 sm:col-span-7"
+      className="w-full h-[555px] col-span-12 sm:col-span-7"
     >
       <CardHeader className="absolute z-10 top-1 flex-col items-start">
         <p className="text-tiny text-white/60 uppercase font-bold">
