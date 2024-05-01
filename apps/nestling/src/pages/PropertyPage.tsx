@@ -4,6 +4,7 @@ import { Card, CardBody, CardHeader, Spacer } from "@nextui-org/react";
 import PropertyCard from "@Components/PropertyCard";
 import data from "../assets/data/properties.json";
 import Hero from "@Components/Hero";
+import CardLayout from "@Components/CardLayout";
 const PropertyPage = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const handleOnSubmit = (value: string) => {
@@ -20,7 +21,8 @@ const PropertyPage = () => {
       </div>
       <Hero property={data?.properties[0]?.Property} />
       <Spacer y={6} x={4} />
-      <div className="flex justify-center content-center">
+      <CardLayout />
+      {/* <div className="flex justify-center content-center">
         <div className="max-w-screen-lg w-full">
           <Card
             className="bg-[#E4E4E7] m-[24px] w-full"
@@ -35,7 +37,7 @@ const PropertyPage = () => {
             </CardBody>
           </Card>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
