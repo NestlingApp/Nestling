@@ -4,11 +4,7 @@ import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { motion } from "framer-motion";
 
-const DraggableCard = ({ id, activeId }) => {
-  function generateRandomHexCode() {
-    let n = (Math.random() * 0xfffff * 1000000).toString(16);
-    return "#" + n.slice(0, 6);
-  }
+const DraggableCard = ({ id, activeId, children }) => {
   const sortable = useSortable({
     id,
   });
@@ -21,7 +17,7 @@ const DraggableCard = ({ id, activeId }) => {
     transform,
     transition,
   } = sortable;
-
+  console.log("isDragging", isDragging, isDragging ? 0.5 : 1);
   return (
     <motion.div
       layoutId={id}
@@ -32,8 +28,6 @@ const DraggableCard = ({ id, activeId }) => {
       ref={setNodeRef}
       style={{
         position: "relative",
-        padding: "50%",
-        background: "white",
         boxShadow: "0px 2px 4px rgba(0,0,0,0.15)",
         borderRadius: 10,
         display: "flex",
@@ -41,9 +35,7 @@ const DraggableCard = ({ id, activeId }) => {
         alignItems: "center",
         userSelect: "none",
         touchAction: "none",
-        opacity: isDragging ? 0.5 : 1,
-        gridColumn: id[1] > Number(5) ? "span 2" : undefined,
-        backgroundColor: id,
+        gridColumn: id % 4 ? "span 2" : undefined,
         transform: transform
           ? `translate(${transform.x}px, ${transform.y}px)`
           : "none",
@@ -51,7 +43,17 @@ const DraggableCard = ({ id, activeId }) => {
       }}
       {...attributes}
       {...listeners}
-    />
+    >
+      {/* Need to keep the opacity out of the motion div or else it doesn't update properly */}
+      <div
+        style={{
+          width: "100%",
+          opacity: isDragging ? 0.5 : 1,
+        }}
+      >
+        {children}
+      </div>
+    </motion.div>
   );
 };
 

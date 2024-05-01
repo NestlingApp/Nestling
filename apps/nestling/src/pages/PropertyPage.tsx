@@ -21,7 +21,11 @@ const PropertyPage = () => {
       </div>
       <Hero property={data?.properties[0]?.Property} />
       <Spacer y={6} x={4} />
-      <CardLayout />
+      <div className="flex justify-center content-center">
+        <div className="max-w-screen-lg w-full">
+          <CardLayout />
+        </div>
+      </div>
       {/* <div className="flex justify-center content-center">
         <div className="max-w-screen-lg w-full">
           <Card

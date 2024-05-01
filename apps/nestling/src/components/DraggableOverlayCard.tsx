@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { useDndContext } from "@dnd-kit/core";
 
-const DraggableOverlayCard = (props: { id: string }) => {
-  const { id } = props;
+const DraggableOverlayCard = (props: { id: string; children: ReactNode }) => {
+  const { id, children } = props;
 
   function useDndIsReallyActiveId(id: string) {
     const context = useDndContext();
@@ -20,8 +20,6 @@ const DraggableOverlayCard = (props: { id: string }) => {
     <div
       style={{
         position: "relative",
-        padding: "50%",
-        background: "white",
         boxShadow: "0px 2px 4px rgba(0,0,0,0.15)",
         borderRadius: 10,
         display: "flex",
@@ -29,12 +27,12 @@ const DraggableOverlayCard = (props: { id: string }) => {
         alignItems: "center",
         userSelect: "none",
         touchAction: "none",
-        backgroundColor: id,
         height: "100%",
-        // padding: 0,
         transform: isReallyActive ? "scale(1.05)" : "none",
       }}
-    />
+    >
+      {children}
+    </div>
   );
 };
 

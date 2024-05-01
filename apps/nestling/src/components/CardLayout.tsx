@@ -22,18 +22,12 @@ import {
   sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
 
-import shuffle from "lodash/shuffle";
-
 // import styles from "./Styles";
 import DraggableOverlayCard from "./DraggableOverlayCard";
 import DraggableCard from "./DraggableCard";
+import SectionCard from "./SectionCard";
 
-function generateRandomHexCode() {
-  let n = (Math.random() * 0xfffff * 1000000).toString(16);
-  return "#" + n.slice(0, 6);
-}
-
-const initialItems = [...Array(30).keys()].map(() => generateRandomHexCode());
+const initialItems = [...Array(30).keys()].map((i) => i + 1);
 
 const CardLayout = () => {
   const [items, setItems] = useState(initialItems);
@@ -62,27 +56,6 @@ const CardLayout = () => {
 
   return (
     <>
-      <div style={{ padding: 16 }}>
-        <button
-          style={{ marginRight: 16 }}
-          onClick={() => {
-            setItems(shuffle(items));
-          }}
-        >
-          Shuffle items
-        </button>
-
-        <input
-          type="range"
-          value={columnCount}
-          min={4}
-          max={16}
-          onChange={(event) => {
-            setColumnCount(event.target.value as any as number);
-          }}
-        />
-      </div>
-
       <DndContext
         sensors={sensors}
         onDragStart={handleDragStart}
@@ -93,18 +66,23 @@ const CardLayout = () => {
             style={{
               display: "grid",
               gridGap: 24,
-              padding: 48,
               gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
             }}
           >
             {items.map((id) => (
-              <DraggableCard key={id} id={id} activeId={activeId} />
+              <DraggableCard key={id} id={id} activeId={activeId}>
+                <SectionCard title={`Section #${id}`} />
+              </DraggableCard>
             ))}
           </div>
         </SortableContext>
 
         <DragOverlay>
-          {activeId ? <DraggableOverlayCard id={activeId} /> : null}
+          {activeId ? (
+            <DraggableOverlayCard id={activeId}>
+              <SectionCard title={`Section #${activeId}`} />
+            </DraggableOverlayCard>
+          ) : null}
         </DragOverlay>
       </DndContext>
     </>
