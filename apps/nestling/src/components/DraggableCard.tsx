@@ -17,7 +17,7 @@ const DraggableCard = ({ id, activeId, children }) => {
     transform,
     transition,
   } = sortable;
-  console.log("isDragging", isDragging, isDragging ? 0.5 : 1);
+
   return (
     <motion.div
       layoutId={id}
@@ -35,7 +35,7 @@ const DraggableCard = ({ id, activeId, children }) => {
         alignItems: "center",
         userSelect: "none",
         touchAction: "none",
-        gridColumn: id % 4 ? "span 2" : undefined,
+        gridColumn: id % 2 ? "span 1" : "span 1",
         transform: transform
           ? `translate(${transform.x}px, ${transform.y}px)`
           : "none",
