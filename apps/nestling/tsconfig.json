@@ -5,6 +5,7 @@
             "@Components/*": ["src/components/*"],
             "@Images/*": ["src/assets/img/*"],     
             "@Pages/*": ["src/pages/*"],       
+            "@Data/*":["src/data/*"],
             "*": [
                 "src/*",
             ]

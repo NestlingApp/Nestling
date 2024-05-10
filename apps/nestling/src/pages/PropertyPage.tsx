@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import NavBar from "@Components/Navbar";
 import { Card, CardBody, CardHeader, Spacer } from "@nextui-org/react";
 import PropertyCard from "@Components/PropertyCard";
-import data from "../assets/data/properties.json";
+import data from "../data/properties.json";
 import Hero from "@Components/Hero";
 import CardLayout from "@Components/CardLayout";
+import { RCAProperty } from "data/reatlorca/types";
 const PropertyPage = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const handleOnSubmit = (value: string) => {
     setSearchValue(value);
   };
   console.log("properties", data);
+  const listings: RCAListing[] = data.properties;
   return (
     <div className="bg-[#F4F4F5]" style={{ backgroundColor: "#F4F4F5" }}>
       <NavBar onSubmit={handleOnSubmit} />
@@ -19,11 +21,11 @@ const PropertyPage = () => {
           {searchValue}
         </h1>
       </div>
-      <Hero property={data?.properties[0]?.Property} />
+      <Hero property={listings[0].Property} />
       <Spacer y={6} x={4} />
       <div className="flex justify-center content-center">
         <div className="max-w-screen-lg w-full">
-          <CardLayout />
+          <CardLayout data={listings[0]} />
         </div>
       </div>
       {/* <div className="flex justify-center content-center">

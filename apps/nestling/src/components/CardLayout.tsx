@@ -22,14 +22,22 @@ import {
   sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
 
+import { RCAListing } from "data/reatlorca/types";
+import layout from "./layout.json";
+
 // import styles from "./Styles";
-import DraggableOverlayCard from "./DraggableOverlayCard";
-import DraggableCard from "./DraggableCard";
+import DraggableOverlayCard from "./cards/DraggableOverlayCard";
+import DraggableCard from "./cards/DraggableCard";
 import SectionCard from "./SectionCard";
+import OverviewMetricCard from "./cards/OverviewMetricCard";
+import CardFactory from "./cards/CardFactory";
 
 const initialItems = [...Array(30).keys()].map((i) => i + 1);
 
-const CardLayout = () => {
+interface CardLayoutProps {
+  data: RCAListing;
+}
+const CardLayout = ({ data }) => {
   const [items, setItems] = useState(initialItems);
 
   const [activeId, setActiveId] = useState(null);
@@ -69,11 +77,23 @@ const CardLayout = () => {
               gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
             }}
           >
-            {items.map((id) => (
+            {layout?.cards.map((card: ICardConfig) => (
+              <DraggableCard
+                size={card.size}
+                key={card.id}
+                id={card.id}
+                activeId={activeId}
+              >
+                <CardFactory config={card} data={data} />
+                {/* <SectionCard title={`Section #${id}`} /> */}
+              </DraggableCard>
+            ))}
+
+            {/* {items.map((id) => (
               <DraggableCard key={id} id={id} activeId={activeId}>
                 <SectionCard title={`Section #${id}`} />
               </DraggableCard>
-            ))}
+            ))} */}
           </div>
         </SortableContext>
 

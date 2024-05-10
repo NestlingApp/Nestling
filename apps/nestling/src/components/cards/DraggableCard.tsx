@@ -1,10 +1,17 @@
 // @ts-nocheck
 
-import React from "react";
+import React, { ReactNode } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { motion } from "framer-motion";
 
-const DraggableCard = ({ id, activeId, children }) => {
+interface DraggableCardProps {
+  id: string;
+  activeId: string;
+  size: number;
+  children: ReactNode;
+}
+
+const DraggableCard = ({ id, activeId, children, size }) => {
   const sortable = useSortable({
     id,
   });
@@ -35,7 +42,7 @@ const DraggableCard = ({ id, activeId, children }) => {
         alignItems: "center",
         userSelect: "none",
         touchAction: "none",
-        gridColumn: id % 2 ? "span 1" : "span 1",
+        gridColumn: size ? `span ${size}` : "span 1",
         transform: transform
           ? `translate(${transform.x}px, ${transform.y}px)`
           : "none",

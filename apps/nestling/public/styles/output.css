@@ -768,12 +768,12 @@ video {
   margin: 0px;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .m-1 {
   margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
 }
 
 .m-\[24px\] {
@@ -870,10 +870,6 @@ video {
   margin-bottom: 0.5rem;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .mb-5 {
   margin-bottom: 1.25rem;
 }
@@ -890,6 +886,10 @@ video {
   margin-left: 0.5rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -904,10 +904,6 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mr-1 {
-  margin-right: 0.25rem;
 }
 
 .box-border {
@@ -1049,8 +1045,12 @@ video {
   height: 2px;
 }
 
-.h-\[300px\] {
-  height: 300px;
+.h-\[315px\] {
+  height: 315px;
+}
+
+.h-\[450px\] {
+  height: 450px;
 }
 
 .h-\[555px\] {
@@ -1093,26 +1093,6 @@ video {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[500px\] {
-  height: 500px;
-}
-
-.h-\[450px\] {
-  height: 450px;
-}
-
-.h-\[320px\] {
-  height: 320px;
-}
-
-.h-\[310px\] {
-  height: 310px;
-}
-
-.h-\[315px\] {
-  height: 315px;
 }
 
 .max-h-64 {
@@ -1283,10 +1263,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[520px\] {
-  width: 520px;
 }
 
 .min-w-10 {
@@ -1690,10 +1666,6 @@ video {
           appearance: none;
 }
 
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1760,6 +1732,10 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .\!gap-0 {
@@ -2201,6 +2177,21 @@ video {
   border-top-color: transparent;
 }
 
+.bg-\[\#3F3F45\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 63 69 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#E4E4E7\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#F4F4F5\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
+}
+
 .bg-background {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-background) / var(--nextui-background-opacity, var(--tw-bg-opacity)));
@@ -2382,21 +2373,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#F4F4F5\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#E4E4E7\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#3F3F45\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(63 63 69 / var(--tw-bg-opacity));
 }
 
 .bg-stripe-gradient {
@@ -3196,34 +3172,42 @@ video {
   transition-property: none !important;
 }
 
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
 .transition-\[color\2c opacity\] {
   transition-property: color,opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .transition-\[transform\2c background-color\2c color\] {
   transition-property: transform,background-color,color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .transition-\[transform\2c color\2c left\2c opacity\] {
   transition-property: transform,color,left,opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .transition-none {
@@ -3233,21 +3217,13 @@ video {
 .transition-opacity {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .transition-transform {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .\!duration-100 {
@@ -3305,152 +3281,103 @@ video {
 :root,.light,[data-theme="light"] {
   color-scheme: light;
   --nextui-background: 0 0% 100%;
-  --nextui-foreground-50: 0 0% 98%;
-  --nextui-foreground-100: 240 5% 96%;
-  --nextui-foreground-200: 240 6% 90%;
-  --nextui-foreground-300: 240 5% 84%;
-  --nextui-foreground-400: 240 5% 65%;
-  --nextui-foreground-500: 240 4% 46%;
-  --nextui-foreground-600: 240 5% 34%;
-  --nextui-foreground-700: 240 5% 26%;
-  --nextui-foreground-800: 240 4% 16%;
-  --nextui-foreground-900: 240 6% 10%;
-  --nextui-foreground: 202 24% 9%;
-  --nextui-divider: 0 0% 7%;
+  --nextui-foreground-50: 0 0% 98.04%;
+  --nextui-foreground-100: 240 4.76% 95.88%;
+  --nextui-foreground-200: 240 5.88% 90%;
+  --nextui-foreground-300: 240 4.88% 83.92%;
+  --nextui-foreground-400: 240 5.03% 64.9%;
+  --nextui-foreground-500: 240 3.83% 46.08%;
+  --nextui-foreground-600: 240 5.2% 33.92%;
+  --nextui-foreground-700: 240 5.26% 26.08%;
+  --nextui-foreground-800: 240 3.7% 15.88%;
+  --nextui-foreground-900: 240 5.88% 10%;
+  --nextui-foreground: 201.81999999999994 24.44% 8.82%;
+  --nextui-divider: 0 0% 6.67%;
   --nextui-divider-opacity: 0.15;
-  --nextui-focus: 212 100% 47%;
+  --nextui-focus: 212.01999999999998 100% 46.67%;
   --nextui-overlay: 0 0% 0%;
   --nextui-content1: 0 0% 100%;
-  --nextui-content1-foreground: 202 24% 9%;
-  --nextui-content2: 240 5% 96%;
-  --nextui-content2-foreground: 240 4% 16%;
-  --nextui-content3: 240 6% 90%;
-  --nextui-content3-foreground: 240 5% 26%;
-  --nextui-content4: 240 5% 84%;
-  --nextui-content4-foreground: 240 5% 34%;
-  --nextui-default-50: 0 0% 98%;
-  --nextui-default-100: 240 5% 96%;
-  --nextui-default-200: 240 6% 90%;
-  --nextui-default-300: 240 5% 84%;
-  --nextui-default-400: 240 5% 65%;
-  --nextui-default-500: 240 4% 46%;
-  --nextui-default-600: 240 5% 34%;
-  --nextui-default-700: 240 5% 26%;
-  --nextui-default-800: 240 4% 16%;
-  --nextui-default-900: 240 6% 10%;
+  --nextui-content1-foreground: 201.81999999999994 24.44% 8.82%;
+  --nextui-content2: 240 4.76% 95.88%;
+  --nextui-content2-foreground: 240 3.7% 15.88%;
+  --nextui-content3: 240 5.88% 90%;
+  --nextui-content3-foreground: 240 5.26% 26.08%;
+  --nextui-content4: 240 4.88% 83.92%;
+  --nextui-content4-foreground: 240 5.2% 33.92%;
+  --nextui-default-50: 0 0% 98.04%;
+  --nextui-default-100: 240 4.76% 95.88%;
+  --nextui-default-200: 240 5.88% 90%;
+  --nextui-default-300: 240 4.88% 83.92%;
+  --nextui-default-400: 240 5.03% 64.9%;
+  --nextui-default-500: 240 3.83% 46.08%;
+  --nextui-default-600: 240 5.2% 33.92%;
+  --nextui-default-700: 240 5.26% 26.08%;
+  --nextui-default-800: 240 3.7% 15.88%;
+  --nextui-default-900: 240 5.88% 10%;
   --nextui-default-foreground: 0 0% 0%;
-  --nextui-default: 240 5% 84%;
-  --nextui-primary-50: 213 92% 95%;
-  --nextui-primary-100: 212 92% 90%;
-  --nextui-primary-200: 212 92% 79%;
-  --nextui-primary-300: 212 92% 69%;
-  --nextui-primary-400: 212 92% 58%;
-  --nextui-primary-500: 212 100% 47%;
-  --nextui-primary-600: 212 100% 38%;
-  --nextui-primary-700: 212 100% 29%;
-  --nextui-primary-800: 212 100% 19%;
-  --nextui-primary-900: 212 100% 10%;
+  --nextui-default: 240 4.88% 83.92%;
+  --nextui-primary-50: 212.5 92.31% 94.9%;
+  --nextui-primary-100: 211.84000000000003 92.45% 89.61%;
+  --nextui-primary-200: 211.84000000000003 92.45% 79.22%;
+  --nextui-primary-300: 212.24 92.45% 68.82%;
+  --nextui-primary-400: 212.14 92.45% 58.43%;
+  --nextui-primary-500: 212.01999999999998 100% 46.67%;
+  --nextui-primary-600: 212.14 100% 38.43%;
+  --nextui-primary-700: 212.24 100% 28.82%;
+  --nextui-primary-800: 211.84000000000003 100% 19.22%;
+  --nextui-primary-900: 211.84000000000003 100% 9.61%;
   --nextui-primary-foreground: 0 0% 100%;
-  --nextui-primary: 212 100% 47%;
-  --nextui-secondary-50: 270 62% 95%;
-  --nextui-secondary-100: 270 59% 89%;
-  --nextui-secondary-200: 270 59% 79%;
-  --nextui-secondary-300: 270 59% 68%;
-  --nextui-secondary-400: 270 59% 58%;
-  --nextui-secondary-500: 270 67% 47%;
-  --nextui-secondary-600: 270 67% 38%;
-  --nextui-secondary-700: 270 67% 28%;
-  --nextui-secondary-800: 270 67% 19%;
-  --nextui-secondary-900: 270 67% 9%;
+  --nextui-primary: 212.01999999999998 100% 46.67%;
+  --nextui-secondary-50: 270 61.54% 94.9%;
+  --nextui-secondary-100: 270 59.26% 89.41%;
+  --nextui-secondary-200: 270 59.26% 78.82%;
+  --nextui-secondary-300: 270 59.26% 68.24%;
+  --nextui-secondary-400: 270 59.26% 57.65%;
+  --nextui-secondary-500: 270 66.67% 47.06%;
+  --nextui-secondary-600: 270 66.67% 37.65%;
+  --nextui-secondary-700: 270 66.67% 28.24%;
+  --nextui-secondary-800: 270 66.67% 18.82%;
+  --nextui-secondary-900: 270 66.67% 9.41%;
   --nextui-secondary-foreground: 0 0% 100%;
-  --nextui-secondary: 270 67% 47%;
-  --nextui-success-50: 147 64% 95%;
-  --nextui-success-100: 146 61% 89%;
-  --nextui-success-200: 146 62% 77%;
-  --nextui-success-300: 146 63% 66%;
-  --nextui-success-400: 146 62% 55%;
-  --nextui-success-500: 146 79% 44%;
-  --nextui-success-600: 146 80% 35%;
-  --nextui-success-700: 146 79% 26%;
-  --nextui-success-800: 146 80% 17%;
-  --nextui-success-900: 146 78% 9%;
+  --nextui-secondary: 270 66.67% 47.06%;
+  --nextui-success-50: 146.66999999999996 64.29% 94.51%;
+  --nextui-success-100: 145.71000000000004 61.4% 88.82%;
+  --nextui-success-200: 146.2 61.74% 77.45%;
+  --nextui-success-300: 145.78999999999996 62.57% 66.47%;
+  --nextui-success-400: 146.01 62.45% 55.1%;
+  --nextui-success-500: 145.96000000000004 79.46% 43.92%;
+  --nextui-success-600: 146.01 79.89% 35.1%;
+  --nextui-success-700: 145.78999999999996 79.26% 26.47%;
+  --nextui-success-800: 146.2 79.78% 17.45%;
+  --nextui-success-900: 145.71000000000004 77.78% 8.82%;
   --nextui-success-foreground: 0 0% 0%;
-  --nextui-success: 146 79% 44%;
-  --nextui-warning-50: 55 92% 95%;
-  --nextui-warning-100: 37 91% 91%;
-  --nextui-warning-200: 37 91% 82%;
-  --nextui-warning-300: 37 91% 73%;
-  --nextui-warning-400: 37 91% 64%;
-  --nextui-warning-500: 37 91% 55%;
-  --nextui-warning-600: 37 74% 44%;
-  --nextui-warning-700: 37 74% 33%;
-  --nextui-warning-800: 37 75% 22%;
-  --nextui-warning-900: 37 75% 11%;
+  --nextui-success: 145.96000000000004 79.46% 43.92%;
+  --nextui-warning-50: 54.55000000000001 91.67% 95.29%;
+  --nextui-warning-100: 37.139999999999986 91.3% 90.98%;
+  --nextui-warning-200: 37.139999999999986 91.3% 81.96%;
+  --nextui-warning-300: 36.95999999999998 91.24% 73.14%;
+  --nextui-warning-400: 37.00999999999999 91.26% 64.12%;
+  --nextui-warning-500: 37.02999999999997 91.27% 55.1%;
+  --nextui-warning-600: 37.00999999999999 74.22% 44.12%;
+  --nextui-warning-700: 36.95999999999998 73.96% 33.14%;
+  --nextui-warning-800: 37.139999999999986 75% 21.96%;
+  --nextui-warning-900: 37.139999999999986 75% 10.98%;
   --nextui-warning-foreground: 0 0% 0%;
-  --nextui-warning: 37 91% 55%;
-  --nextui-danger-50: 339 92% 95%;
-  --nextui-danger-100: 340 92% 90%;
-  --nextui-danger-200: 339 90% 80%;
-  --nextui-danger-300: 339 91% 71%;
-  --nextui-danger-400: 339 90% 61%;
-  --nextui-danger-500: 339 90% 51%;
-  --nextui-danger-600: 339 87% 41%;
-  --nextui-danger-700: 339 86% 31%;
-  --nextui-danger-800: 339 87% 20%;
-  --nextui-danger-900: 340 85% 10%;
+  --nextui-warning: 37.02999999999997 91.27% 55.1%;
+  --nextui-danger-50: 339.13 92% 95.1%;
+  --nextui-danger-100: 340 91.84% 90.39%;
+  --nextui-danger-200: 339.3299999999999 90% 80.39%;
+  --nextui-danger-300: 339.11 90.6% 70.78%;
+  --nextui-danger-400: 339 90% 60.78%;
+  --nextui-danger-500: 339.20000000000005 90.36% 51.18%;
+  --nextui-danger-600: 339 86.54% 40.78%;
+  --nextui-danger-700: 339.11 85.99% 30.78%;
+  --nextui-danger-800: 339.3299999999999 86.54% 20.39%;
+  --nextui-danger-900: 340 84.91% 10.39%;
   --nextui-danger-foreground: 0 0% 100%;
-  --nextui-danger: 339 90% 51%;
-  --nextui-spacing-unit: 4px;
-  --nextui-spacing-unit-0: 0px;
-  --nextui-spacing-unit-1: 0.25rem;
-  --nextui-spacing-unit-2: 0.5rem;
-  --nextui-spacing-unit-3: 0.75rem;
-  --nextui-spacing-unit-4: 1rem;
-  --nextui-spacing-unit-5: 1.25rem;
-  --nextui-spacing-unit-6: 1.5rem;
-  --nextui-spacing-unit-7: 1.75rem;
-  --nextui-spacing-unit-8: 2rem;
-  --nextui-spacing-unit-9: 2.25rem;
-  --nextui-spacing-unit-10: 2.5rem;
-  --nextui-spacing-unit-11: 2.75rem;
-  --nextui-spacing-unit-12: 3rem;
-  --nextui-spacing-unit-13: 3.25rem;
-  --nextui-spacing-unit-14: 3.5rem;
-  --nextui-spacing-unit-15: 3.75rem;
-  --nextui-spacing-unit-16: 4rem;
-  --nextui-spacing-unit-17: 4.25rem;
-  --nextui-spacing-unit-18: 4.5rem;
-  --nextui-spacing-unit-20: 5rem;
-  --nextui-spacing-unit-24: 6rem;
-  --nextui-spacing-unit-28: 7rem;
-  --nextui-spacing-unit-32: 8rem;
-  --nextui-spacing-unit-36: 9rem;
-  --nextui-spacing-unit-40: 10rem;
-  --nextui-spacing-unit-44: 11rem;
-  --nextui-spacing-unit-48: 12rem;
-  --nextui-spacing-unit-52: 13rem;
-  --nextui-spacing-unit-56: 14rem;
-  --nextui-spacing-unit-60: 15rem;
-  --nextui-spacing-unit-64: 16rem;
-  --nextui-spacing-unit-72: 18rem;
-  --nextui-spacing-unit-80: 20rem;
-  --nextui-spacing-unit-96: 24rem;
-  --nextui-spacing-unit-xs: 0.5rem;
-  --nextui-spacing-unit-sm: 0.75rem;
-  --nextui-spacing-unit-md: 1rem;
-  --nextui-spacing-unit-lg: 1.375rem;
-  --nextui-spacing-unit-xl: 2.25rem;
-  --nextui-spacing-unit-2xl: 3rem;
-  --nextui-spacing-unit-3xl: 5rem;
-  --nextui-spacing-unit-4xl: 7.5rem;
-  --nextui-spacing-unit-5xl: 14rem;
-  --nextui-spacing-unit-6xl: 18rem;
-  --nextui-spacing-unit-7xl: 24rem;
-  --nextui-spacing-unit-8xl: 32rem;
-  --nextui-spacing-unit-9xl: 40rem;
-  --nextui-spacing-unit-3_5: 0.875rem;
-  --nextui-disabled-opacity: .5;
+  --nextui-danger: 339.20000000000005 90.36% 51.18%;
   --nextui-divider-weight: 1px;
+  --nextui-disabled-opacity: .5;
   --nextui-font-size-tiny: 0.75rem;
   --nextui-font-size-small: 0.875rem;
   --nextui-font-size-medium: 1rem;
@@ -3474,152 +3401,103 @@ video {
 .dark,[data-theme="dark"] {
   color-scheme: dark;
   --nextui-background: 0 0% 0%;
-  --nextui-foreground-50: 240 6% 10%;
-  --nextui-foreground-100: 240 4% 16%;
-  --nextui-foreground-200: 240 5% 26%;
-  --nextui-foreground-300: 240 5% 34%;
-  --nextui-foreground-400: 240 4% 46%;
-  --nextui-foreground-500: 240 5% 65%;
-  --nextui-foreground-600: 240 5% 84%;
-  --nextui-foreground-700: 240 6% 90%;
-  --nextui-foreground-800: 240 5% 96%;
-  --nextui-foreground-900: 0 0% 98%;
-  --nextui-foreground: 210 6% 93%;
-  --nextui-focus: 212 100% 47%;
+  --nextui-foreground-50: 240 5.88% 10%;
+  --nextui-foreground-100: 240 3.7% 15.88%;
+  --nextui-foreground-200: 240 5.26% 26.08%;
+  --nextui-foreground-300: 240 5.2% 33.92%;
+  --nextui-foreground-400: 240 3.83% 46.08%;
+  --nextui-foreground-500: 240 5.03% 64.9%;
+  --nextui-foreground-600: 240 4.88% 83.92%;
+  --nextui-foreground-700: 240 5.88% 90%;
+  --nextui-foreground-800: 240 4.76% 95.88%;
+  --nextui-foreground-900: 0 0% 98.04%;
+  --nextui-foreground: 210 5.56% 92.94%;
+  --nextui-focus: 212.01999999999998 100% 46.67%;
   --nextui-overlay: 0 0% 0%;
   --nextui-divider: 0 0% 100%;
   --nextui-divider-opacity: 0.15;
-  --nextui-content1: 240 6% 10%;
-  --nextui-content1-foreground: 0 0% 98%;
-  --nextui-content2: 240 4% 16%;
-  --nextui-content2-foreground: 240 5% 96%;
-  --nextui-content3: 240 5% 26%;
-  --nextui-content3-foreground: 240 6% 90%;
-  --nextui-content4: 240 5% 34%;
-  --nextui-content4-foreground: 240 5% 84%;
-  --nextui-default-50: 240 6% 10%;
-  --nextui-default-100: 240 4% 16%;
-  --nextui-default-200: 240 5% 26%;
-  --nextui-default-300: 240 5% 34%;
-  --nextui-default-400: 240 4% 46%;
-  --nextui-default-500: 240 5% 65%;
-  --nextui-default-600: 240 5% 84%;
-  --nextui-default-700: 240 6% 90%;
-  --nextui-default-800: 240 5% 96%;
-  --nextui-default-900: 0 0% 98%;
+  --nextui-content1: 240 5.88% 10%;
+  --nextui-content1-foreground: 0 0% 98.04%;
+  --nextui-content2: 240 3.7% 15.88%;
+  --nextui-content2-foreground: 240 4.76% 95.88%;
+  --nextui-content3: 240 5.26% 26.08%;
+  --nextui-content3-foreground: 240 5.88% 90%;
+  --nextui-content4: 240 5.2% 33.92%;
+  --nextui-content4-foreground: 240 4.88% 83.92%;
+  --nextui-default-50: 240 5.88% 10%;
+  --nextui-default-100: 240 3.7% 15.88%;
+  --nextui-default-200: 240 5.26% 26.08%;
+  --nextui-default-300: 240 5.2% 33.92%;
+  --nextui-default-400: 240 3.83% 46.08%;
+  --nextui-default-500: 240 5.03% 64.9%;
+  --nextui-default-600: 240 4.88% 83.92%;
+  --nextui-default-700: 240 5.88% 90%;
+  --nextui-default-800: 240 4.76% 95.88%;
+  --nextui-default-900: 0 0% 98.04%;
   --nextui-default-foreground: 0 0% 100%;
-  --nextui-default: 240 5% 26%;
-  --nextui-primary-50: 212 100% 10%;
-  --nextui-primary-100: 212 100% 19%;
-  --nextui-primary-200: 212 100% 29%;
-  --nextui-primary-300: 212 100% 38%;
-  --nextui-primary-400: 212 100% 47%;
-  --nextui-primary-500: 212 92% 58%;
-  --nextui-primary-600: 212 92% 69%;
-  --nextui-primary-700: 212 92% 79%;
-  --nextui-primary-800: 212 92% 90%;
-  --nextui-primary-900: 213 92% 95%;
+  --nextui-default: 240 5.26% 26.08%;
+  --nextui-primary-50: 211.84000000000003 100% 9.61%;
+  --nextui-primary-100: 211.84000000000003 100% 19.22%;
+  --nextui-primary-200: 212.24 100% 28.82%;
+  --nextui-primary-300: 212.14 100% 38.43%;
+  --nextui-primary-400: 212.01999999999998 100% 46.67%;
+  --nextui-primary-500: 212.14 92.45% 58.43%;
+  --nextui-primary-600: 212.24 92.45% 68.82%;
+  --nextui-primary-700: 211.84000000000003 92.45% 79.22%;
+  --nextui-primary-800: 211.84000000000003 92.45% 89.61%;
+  --nextui-primary-900: 212.5 92.31% 94.9%;
   --nextui-primary-foreground: 0 0% 100%;
-  --nextui-primary: 212 100% 47%;
-  --nextui-secondary-50: 270 67% 9%;
-  --nextui-secondary-100: 270 67% 19%;
-  --nextui-secondary-200: 270 67% 28%;
-  --nextui-secondary-300: 270 67% 38%;
-  --nextui-secondary-400: 270 67% 47%;
-  --nextui-secondary-500: 270 59% 58%;
-  --nextui-secondary-600: 270 59% 68%;
-  --nextui-secondary-700: 270 59% 79%;
-  --nextui-secondary-800: 270 59% 89%;
-  --nextui-secondary-900: 270 62% 95%;
+  --nextui-primary: 212.01999999999998 100% 46.67%;
+  --nextui-secondary-50: 270 66.67% 9.41%;
+  --nextui-secondary-100: 270 66.67% 18.82%;
+  --nextui-secondary-200: 270 66.67% 28.24%;
+  --nextui-secondary-300: 270 66.67% 37.65%;
+  --nextui-secondary-400: 270 66.67% 47.06%;
+  --nextui-secondary-500: 270 59.26% 57.65%;
+  --nextui-secondary-600: 270 59.26% 68.24%;
+  --nextui-secondary-700: 270 59.26% 78.82%;
+  --nextui-secondary-800: 270 59.26% 89.41%;
+  --nextui-secondary-900: 270 61.54% 94.9%;
   --nextui-secondary-foreground: 0 0% 100%;
-  --nextui-secondary: 270 59% 58%;
-  --nextui-success-50: 146 78% 9%;
-  --nextui-success-100: 146 80% 17%;
-  --nextui-success-200: 146 79% 26%;
-  --nextui-success-300: 146 80% 35%;
-  --nextui-success-400: 146 79% 44%;
-  --nextui-success-500: 146 62% 55%;
-  --nextui-success-600: 146 63% 66%;
-  --nextui-success-700: 146 62% 77%;
-  --nextui-success-800: 146 61% 89%;
-  --nextui-success-900: 147 64% 95%;
+  --nextui-secondary: 270 59.26% 57.65%;
+  --nextui-success-50: 145.71000000000004 77.78% 8.82%;
+  --nextui-success-100: 146.2 79.78% 17.45%;
+  --nextui-success-200: 145.78999999999996 79.26% 26.47%;
+  --nextui-success-300: 146.01 79.89% 35.1%;
+  --nextui-success-400: 145.96000000000004 79.46% 43.92%;
+  --nextui-success-500: 146.01 62.45% 55.1%;
+  --nextui-success-600: 145.78999999999996 62.57% 66.47%;
+  --nextui-success-700: 146.2 61.74% 77.45%;
+  --nextui-success-800: 145.71000000000004 61.4% 88.82%;
+  --nextui-success-900: 146.66999999999996 64.29% 94.51%;
   --nextui-success-foreground: 0 0% 0%;
-  --nextui-success: 146 79% 44%;
-  --nextui-warning-50: 37 75% 11%;
-  --nextui-warning-100: 37 75% 22%;
-  --nextui-warning-200: 37 74% 33%;
-  --nextui-warning-300: 37 74% 44%;
-  --nextui-warning-400: 37 91% 55%;
-  --nextui-warning-500: 37 91% 64%;
-  --nextui-warning-600: 37 91% 73%;
-  --nextui-warning-700: 37 91% 82%;
-  --nextui-warning-800: 37 91% 91%;
-  --nextui-warning-900: 55 92% 95%;
+  --nextui-success: 145.96000000000004 79.46% 43.92%;
+  --nextui-warning-50: 37.139999999999986 75% 10.98%;
+  --nextui-warning-100: 37.139999999999986 75% 21.96%;
+  --nextui-warning-200: 36.95999999999998 73.96% 33.14%;
+  --nextui-warning-300: 37.00999999999999 74.22% 44.12%;
+  --nextui-warning-400: 37.02999999999997 91.27% 55.1%;
+  --nextui-warning-500: 37.00999999999999 91.26% 64.12%;
+  --nextui-warning-600: 36.95999999999998 91.24% 73.14%;
+  --nextui-warning-700: 37.139999999999986 91.3% 81.96%;
+  --nextui-warning-800: 37.139999999999986 91.3% 90.98%;
+  --nextui-warning-900: 54.55000000000001 91.67% 95.29%;
   --nextui-warning-foreground: 0 0% 0%;
-  --nextui-warning: 37 91% 55%;
-  --nextui-danger-50: 340 85% 10%;
-  --nextui-danger-100: 339 87% 20%;
-  --nextui-danger-200: 339 86% 31%;
-  --nextui-danger-300: 339 87% 41%;
-  --nextui-danger-400: 339 90% 51%;
-  --nextui-danger-500: 339 90% 61%;
-  --nextui-danger-600: 339 91% 71%;
-  --nextui-danger-700: 339 90% 80%;
-  --nextui-danger-800: 340 92% 90%;
-  --nextui-danger-900: 339 92% 95%;
+  --nextui-warning: 37.02999999999997 91.27% 55.1%;
+  --nextui-danger-50: 340 84.91% 10.39%;
+  --nextui-danger-100: 339.3299999999999 86.54% 20.39%;
+  --nextui-danger-200: 339.11 85.99% 30.78%;
+  --nextui-danger-300: 339 86.54% 40.78%;
+  --nextui-danger-400: 339.20000000000005 90.36% 51.18%;
+  --nextui-danger-500: 339 90% 60.78%;
+  --nextui-danger-600: 339.11 90.6% 70.78%;
+  --nextui-danger-700: 339.3299999999999 90% 80.39%;
+  --nextui-danger-800: 340 91.84% 90.39%;
+  --nextui-danger-900: 339.13 92% 95.1%;
   --nextui-danger-foreground: 0 0% 100%;
-  --nextui-danger: 339 90% 51%;
-  --nextui-spacing-unit: 4px;
-  --nextui-spacing-unit-0: 0px;
-  --nextui-spacing-unit-1: 0.25rem;
-  --nextui-spacing-unit-2: 0.5rem;
-  --nextui-spacing-unit-3: 0.75rem;
-  --nextui-spacing-unit-4: 1rem;
-  --nextui-spacing-unit-5: 1.25rem;
-  --nextui-spacing-unit-6: 1.5rem;
-  --nextui-spacing-unit-7: 1.75rem;
-  --nextui-spacing-unit-8: 2rem;
-  --nextui-spacing-unit-9: 2.25rem;
-  --nextui-spacing-unit-10: 2.5rem;
-  --nextui-spacing-unit-11: 2.75rem;
-  --nextui-spacing-unit-12: 3rem;
-  --nextui-spacing-unit-13: 3.25rem;
-  --nextui-spacing-unit-14: 3.5rem;
-  --nextui-spacing-unit-15: 3.75rem;
-  --nextui-spacing-unit-16: 4rem;
-  --nextui-spacing-unit-17: 4.25rem;
-  --nextui-spacing-unit-18: 4.5rem;
-  --nextui-spacing-unit-20: 5rem;
-  --nextui-spacing-unit-24: 6rem;
-  --nextui-spacing-unit-28: 7rem;
-  --nextui-spacing-unit-32: 8rem;
-  --nextui-spacing-unit-36: 9rem;
-  --nextui-spacing-unit-40: 10rem;
-  --nextui-spacing-unit-44: 11rem;
-  --nextui-spacing-unit-48: 12rem;
-  --nextui-spacing-unit-52: 13rem;
-  --nextui-spacing-unit-56: 14rem;
-  --nextui-spacing-unit-60: 15rem;
-  --nextui-spacing-unit-64: 16rem;
-  --nextui-spacing-unit-72: 18rem;
-  --nextui-spacing-unit-80: 20rem;
-  --nextui-spacing-unit-96: 24rem;
-  --nextui-spacing-unit-xs: 0.5rem;
-  --nextui-spacing-unit-sm: 0.75rem;
-  --nextui-spacing-unit-md: 1rem;
-  --nextui-spacing-unit-lg: 1.375rem;
-  --nextui-spacing-unit-xl: 2.25rem;
-  --nextui-spacing-unit-2xl: 3rem;
-  --nextui-spacing-unit-3xl: 5rem;
-  --nextui-spacing-unit-4xl: 7.5rem;
-  --nextui-spacing-unit-5xl: 14rem;
-  --nextui-spacing-unit-6xl: 18rem;
-  --nextui-spacing-unit-7xl: 24rem;
-  --nextui-spacing-unit-8xl: 32rem;
-  --nextui-spacing-unit-9xl: 40rem;
-  --nextui-spacing-unit-3_5: 0.875rem;
-  --nextui-disabled-opacity: .5;
+  --nextui-danger: 339.20000000000005 90.36% 51.18%;
   --nextui-divider-weight: 1px;
+  --nextui-disabled-opacity: .5;
   --nextui-font-size-tiny: 0.75rem;
   --nextui-font-size-small: 0.875rem;
   --nextui-font-size-medium: 1rem;
@@ -3660,34 +3538,8 @@ video {
   -webkit-tap-highlight-color: transparent;
 }
 
-.transition-all {
-  transition-property: all;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
 .transition-background {
   transition-property: background;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.transition-colors {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.transition-opacity {
-  transition-property: opacity;
   transition-timing-function: ease;
   transition-duration: 250ms;
 }
@@ -3718,12 +3570,6 @@ video {
 
 .transition-left {
   transition-property: left;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.transition-transform {
-  transition-property: transform;
   transition-timing-function: ease;
   transition-duration: 250ms;
 }
@@ -4143,7 +3989,7 @@ video {
   content: var(--tw-content);
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .before\:transition-none::before {
@@ -4155,14 +4001,14 @@ video {
   content: var(--tw-content);
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .before\:transition-transform::before {
   content: var(--tw-content);
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .before\:\!duration-300::before {
@@ -4180,30 +4026,9 @@ video {
   content: var(--tw-content);
 }
 
-.before\:transition-colors::before {
-  content: var(--tw-content);
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.before\:transition-opacity::before {
-  content: var(--tw-content);
-  transition-property: opacity;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
 .before\:transition-width::before {
   content: var(--tw-content);
   transition-property: width;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.before\:transition-transform::before {
-  content: var(--tw-content);
-  transition-property: transform;
   transition-timing-function: ease;
   transition-duration: 250ms;
 }
@@ -4559,7 +4384,7 @@ video {
   content: var(--tw-content);
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .after\:transition-none::after {
@@ -4571,7 +4396,7 @@ video {
   content: var(--tw-content);
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 250ms;
 }
 
 .after\:\!duration-200::after {
@@ -4599,13 +4424,6 @@ video {
   content: var(--tw-content);
 }
 
-.after\:transition-all::after {
-  content: var(--tw-content);
-  transition-property: all;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
 .after\:transition-background::after {
   content: var(--tw-content);
   transition-property: background;
@@ -4623,13 +4441,6 @@ video {
 .after\:transition-height::after {
   content: var(--tw-content);
   transition-property: height;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.after\:transition-transform::after {
-  content: var(--tw-content);
-  transition-property: transform;
   transition-timing-function: ease;
   transition-duration: 250ms;
 }
@@ -6391,36 +6202,18 @@ video {
 .data-\[hover\=true\]\:transition-colors[data-hover=true] {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.data-\[moving\=true\]\:transition-transform[data-moving=true] {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.data-\[sortable\=true\]\:transition-colors[data-sortable=true] {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.data-\[hover\=true\]\:transition-colors[data-hover=true] {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: ease;
-  transition-duration: 250ms;
-}
-
-.data-\[sortable\=true\]\:transition-colors[data-sortable=true] {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: ease;
   transition-duration: 250ms;
 }
 
 .data-\[moving\=true\]\:transition-transform[data-moving=true] {
   transition-property: transform;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+.data-\[sortable\=true\]\:transition-colors[data-sortable=true] {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 250ms;
 }
 
@@ -7908,10 +7701,6 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:col-span-5 {
-    grid-column: span 5 / span 5;
-  }
-
   .sm\:col-span-7 {
     grid-column: span 7 / span 7;
   }
@@ -7946,10 +7735,6 @@ video {
 
   .sm\:max-w-\[10rem\] {
     max-width: 10rem;
-  }
-
-  .sm\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .sm\:items-start {
@@ -8301,8 +8086,7 @@ video {
 }
 
 .\[\&_\.chevron-icon\]\:transition-transform .chevron-icon {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: transform;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 250ms;
 }

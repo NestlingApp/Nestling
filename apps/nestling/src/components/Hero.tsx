@@ -11,19 +11,13 @@ import { Slide } from "yet-another-react-lightbox/dist/types";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+import { RCAProperty } from "data/reatlorca/types";
 
 interface HeroProps {
-  property: {
-    Photo: [
-      {
-        HighResPath: string;
-      }
-    ];
-  };
+  property: RCAProperty;
 }
 
 const Hero = ({ property }: HeroProps) => {
-  console.log("property", property);
   const height = 315;
   const width = 500;
   const [isLightboxOpen, setIsLightboxOpen] = React.useState(false);
@@ -31,12 +25,11 @@ const Hero = ({ property }: HeroProps) => {
     src: property?.Photo?.[0]?.HighResPath,
     width,
     height,
-    title: property?.address?.AddressText,
+    title: property.Address.AddressText,
     description: "Mollie Sivaram",
   };
   const slides: Slide[] = [slide, slide, slide, slide];
 
-  console.log("lightbox: ", isLightboxOpen);
   return (
     <>
       <Lightbox

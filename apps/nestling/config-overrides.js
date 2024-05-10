@@ -9,7 +9,8 @@ module.exports = override(
              "@": path.resolve(__dirname, "src"),
              "@Images": path.resolve(__dirname,"src/assets/img"),
              "@Pages":path.resolve(__dirname,"src/pages"),
-             "@Components":path.resolve(__dirname,"src/components")
+             "@Components":path.resolve(__dirname,"src/components"),
+             "@Data":path.resolve(__dirname,"src/data")
          };
          return config;
      },
