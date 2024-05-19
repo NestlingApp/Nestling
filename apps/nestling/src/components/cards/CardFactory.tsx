@@ -3,6 +3,7 @@ import { CardTypes, ICardConfig } from "@Data/layout/ICardLayout";
 import { RCAListing } from "@Data/reatlorca/types";
 import { getValueFromPath } from "../../helpers/dataHelper";
 import OverviewMetricCard from "./OverviewMetricCard";
+import TextCard from "./TextCard";
 interface CardFactoryProps {
   config: ICardConfig;
   data: RCAListing;
@@ -13,6 +14,8 @@ const CardFactory = ({ config, data }: CardFactoryProps) => {
   switch (config.cardType) {
     case CardTypes.OverviewMetric:
       return <OverviewMetricCard data={cardData} config={config} />;
+    case CardTypes.Text:
+      return <TextCard data={cardData} config={config} />;
     default:
       return <div>not here</div>;
   }

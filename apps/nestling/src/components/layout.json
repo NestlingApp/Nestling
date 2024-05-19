@@ -1,35 +1,73 @@
 {
-    "cards": [
-     
-    {   "id":"randomID4",
-    "size": 2,
-    "contentPath": "Building",
-    "keys": ["BathroomTotal","Bedrooms"],
-    "cardType":"OVERVIEW_METRIC",
-    "title":"Rooms"
-},  
-{   "id":"randomID4",
-"size": 2,
-"contentPath": "Building",
-"keys": ["BathroomTotal","Bedrooms"],
-"cardType":"OVERVIEW_METRIC",
-"title":"Rooms"
-},
-{   "id":"randomID1",
-"size": 2,
-"contentPath": "Land",
-"keys": ["SizeTotal","SizeFrontage"],
-"cardType":"OVERVIEW_METRIC",
-"title":"Rooms"
-
-},
-{   "id":"randomID2",
-"size": 2,
-"contentPath": "Building",
-"keys": ["BathroomTotal","Bedrooms"],
-"cardType":"OVERVIEW_METRIC",
-"title":"Rooms"
-
-}
+    "sections": [
+      {
+        "id": "randomSectionID1",
+        "title": "Property Information",
+        "gridTemplateColumns": "50% 50%",
+        "cards": [
+          {
+            "id": "randomID4",
+            "size": 2,
+            "contentPath": "Building",
+            "keys": [
+              "BathroomTotal",
+              "Bedrooms"
+            ],
+            "cardType": "OVERVIEW_METRIC",
+            "title": "Rooms"
+          },
+          {
+            "id": "randomID4",
+            "size": 2,
+            "contentPath": "Building",
+            "keys": [
+              "BathroomTotal",
+              "Bedrooms"
+            ],
+            "cardType": "OVERVIEW_METRIC",
+            "title": "Rooms"
+          },
+          {
+            "id": "randomID1",
+            "size": 2,
+            "contentPath": "Land",
+            "keys": [
+              "SizeTotal",
+              "SizeFrontage"
+            ],
+            "cardType": "OVERVIEW_METRIC",
+            "title": "Rooms"
+          },
+          {
+            "id": "randomID2",
+            "size": 2,
+            "contentPath": "Building",
+            "keys": [
+              "BathroomTotal",
+              "Bedrooms"
+            ],
+            "cardType": "OVERVIEW_METRIC",
+            "title": "Rooms"
+          }
+        ]
+      },
+      {
+        "id": "randomSectionIDw",
+        "title": "Extras",
+        "gridSpace": 1,
+        "gridTemplateColumns": "100%",
+        "cards": [
+          {
+            "id": "randomID4",
+            "size": 2,
+            "contentPath": "Building",
+            "keys": [
+              "Ammenities"
+            ],
+            "cardType": "TEXT",
+            "title": "Ammenities"
+          }
+        ]
+      }
     ]
-}
+  }

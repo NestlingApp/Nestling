@@ -41,7 +41,7 @@ const CardLayout = ({ data }) => {
   const [items, setItems] = useState(initialItems);
 
   const [activeId, setActiveId] = useState(null);
-  const [columnCount, setColumnCount] = useState(5);
+  const [columnCount, setColumnCount] = useState(2);
 
   function handleDragStart({ active }) {
     setActiveId(active.id);
@@ -73,27 +73,33 @@ const CardLayout = ({ data }) => {
           <div
             style={{
               display: "grid",
-              gridGap: 24,
-              gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
+              gridGap: 10,
+              gridTemplateColumns: `${columnCount}fr 1fr`,
             }}
           >
-            {layout?.cards.map((card: ICardConfig, idx: number) => (
-              <DraggableCard
-                size={card.size}
-                key={card.id}
-                id={card.id}
-                activeId={activeId}
-              >
-                <CardFactory config={card} data={data[idx]} />
-                {/* <SectionCard title={`Section #${id}`} /> */}
-              </DraggableCard>
+            {layout.sections.map((section) => (
+              <SectionCard title={section.title}>
+                <div
+                  style={{
+                    display: "grid",
+                    gridGap: 14,
+                    gridRow: "auto auto",
+                    gridTemplateColumns: section.gridTemplateColumns,
+                  }}
+                >
+                  {section.cards.map((card: ICardConfig, idx: number) => (
+                    <DraggableCard
+                      size={card.size}
+                      key={card.id}
+                      id={card.id}
+                      activeId={activeId}
+                    >
+                      <CardFactory config={card} data={data[idx]} />
+                    </DraggableCard>
+                  ))}
+                </div>
+              </SectionCard>
             ))}
-
-            {/* {items.map((id) => (
-              <DraggableCard key={id} id={id} activeId={activeId}>
-                <SectionCard title={`Section #${id}`} />
-              </DraggableCard>
-            ))} */}
           </div>
         </SortableContext>
 

@@ -35,14 +35,14 @@ const DraggableCard = ({ id, activeId, children, size }) => {
       ref={setNodeRef}
       style={{
         position: "relative",
-        boxShadow: "0px 2px 4px rgba(0,0,0,0.15)",
         borderRadius: 10,
         display: "flex",
         justifyItems: "center",
         alignItems: "center",
         userSelect: "none",
         touchAction: "none",
-        gridColumn: size ? `span ${size}` : "span 1",
+        // gridColumn: size ? `span ${size}` : "span 1",
+        gridColumn: "span 1",
         transform: transform
           ? `translate(${transform.x}px, ${transform.y}px)`
           : "none",

@@ -9,6 +9,7 @@ export type ICardConfig = {
 
  export const CardTypes = {
     OverviewMetric: "OVERVIEW_METRIC",
+    Text: "TEXT",
 } as const;
 
 export type ICardTypes =  typeof CardTypes[keyof typeof CardTypes];

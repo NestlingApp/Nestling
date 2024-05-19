@@ -1,4 +1,3 @@
-import { RCAProperty } from "@Data/reatlorca/types";
 import { Card, CardBody } from "@nextui-org/card";
 import styles from "@Styles/App.module.css";
 import React from "react";
