@@ -6,6 +6,7 @@
             "@Images/*": ["src/assets/img/*"],     
             "@Pages/*": ["src/pages/*"],       
             "@Data/*":["src/data/*"],
+            "@Styles/*":["src/styles/*"],
             "*": [
                 "src/*",
             ]

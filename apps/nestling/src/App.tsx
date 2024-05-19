@@ -2,7 +2,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
 
 import "./App.css";
-import PropertyPage from "@Pages/PropertyPage";
+import PropertyPage from "@Pages/property/PropertyPage";
 
 const App = () => {
   return (

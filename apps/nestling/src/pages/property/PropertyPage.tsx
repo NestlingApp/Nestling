@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import NavBar from "@Components/Navbar";
 import { Card, CardBody, CardHeader, Spacer } from "@nextui-org/react";
 import PropertyCard from "@Components/PropertyCard";
-import data from "../data/properties.json";
+import data from "../../data/properties.json";
 import Hero from "@Components/Hero";
 import CardLayout from "@Components/CardLayout";
-import { RCAProperty } from "data/reatlorca/types";
+import { RCAListing, RCAProperty } from "data/reatlorca/types";
+import SectionCard from "@Components/SectionCard";
+import PropertyDetailsCard from "./PropertyDetailsCard";
+import PropertySummaryCard from "./PropertySummaryCard";
 const PropertyPage = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const handleOnSubmit = (value: string) => {
@@ -13,6 +16,8 @@ const PropertyPage = () => {
   };
   console.log("properties", data);
   const listings: RCAListing[] = data.properties;
+  const listing: RCAListing = listings[1];
+  const property = listings[0].Property;
   return (
     <div className="bg-[#F4F4F5]" style={{ backgroundColor: "#F4F4F5" }}>
       <NavBar onSubmit={handleOnSubmit} />
@@ -21,11 +26,18 @@ const PropertyPage = () => {
           {searchValue}
         </h1>
       </div>
-      <Hero property={listings[0].Property} />
+      <Hero property={property} />
       <Spacer y={6} x={4} />
       <div className="flex justify-center content-center">
         <div className="max-w-screen-lg w-full">
-          <CardLayout data={listings[0]} />
+          <SectionCard className="flex flex-row gap-3" title="Property Details">
+            <PropertyDetailsCard
+              property={property}
+              mlsNumber={listing.MlsNumber}
+            />
+            <PropertySummaryCard summary={listing.PublicRemarks} />
+          </SectionCard>
+          <CardLayout data={listings} />
         </div>
       </div>
       {/* <div className="flex justify-center content-center">

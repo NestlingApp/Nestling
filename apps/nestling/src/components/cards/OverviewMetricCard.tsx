@@ -14,7 +14,7 @@ export const OverviewMetricCard = ({
   console.log("da11ta", data, config);
 
   return (
-    <Card className="w-full">
+    <Card shadow="none" className="w-full">
       <CardBody className="flex flex-row justify-around items-center">
         {config.keys.map((key: string) => {
           return (

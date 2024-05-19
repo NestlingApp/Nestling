@@ -1,12 +1,35 @@
 {
     "cards": [
-        {   "id":"randomID1",
-            "size": 2,
-            "contentPath": "Building",
-            "keys": ["BathroomTotal","Bedrooms"],
-            "cardType":"OVERVIEW_METRIC",
-            "title":"Rooms"
-            
-        }
+     
+    {   "id":"randomID4",
+    "size": 2,
+    "contentPath": "Building",
+    "keys": ["BathroomTotal","Bedrooms"],
+    "cardType":"OVERVIEW_METRIC",
+    "title":"Rooms"
+},  
+{   "id":"randomID4",
+"size": 2,
+"contentPath": "Building",
+"keys": ["BathroomTotal","Bedrooms"],
+"cardType":"OVERVIEW_METRIC",
+"title":"Rooms"
+},
+{   "id":"randomID1",
+"size": 2,
+"contentPath": "Land",
+"keys": ["SizeTotal","SizeFrontage"],
+"cardType":"OVERVIEW_METRIC",
+"title":"Rooms"
+
+},
+{   "id":"randomID2",
+"size": 2,
+"contentPath": "Building",
+"keys": ["BathroomTotal","Bedrooms"],
+"cardType":"OVERVIEW_METRIC",
+"title":"Rooms"
+
+}
     ]
 }

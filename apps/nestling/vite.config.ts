@@ -39,6 +39,7 @@ export default defineConfig({
       { find: '@Pages', replacement: fileURLToPath(new URL('./src/pages', import.meta.url)) },
       { find: '@Images', replacement: fileURLToPath(new URL('./src/assets/img', import.meta.url)) },
       { find: '@Data', replacement: fileURLToPath(new URL('./src/data', import.meta.url)) },
+      { find: '@Styles', replacement: fileURLToPath(new URL('./src/styles', import.meta.url)) },
     ],
   },
 

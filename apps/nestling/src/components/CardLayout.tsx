@@ -77,14 +77,14 @@ const CardLayout = ({ data }) => {
               gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
             }}
           >
-            {layout?.cards.map((card: ICardConfig) => (
+            {layout?.cards.map((card: ICardConfig, idx: number) => (
               <DraggableCard
                 size={card.size}
                 key={card.id}
                 id={card.id}
                 activeId={activeId}
               >
-                <CardFactory config={card} data={data} />
+                <CardFactory config={card} data={data[idx]} />
                 {/* <SectionCard title={`Section #${id}`} /> */}
               </DraggableCard>
             ))}
