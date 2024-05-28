@@ -10,10 +10,10 @@ const SectionCard = ({ title, children, className }: SectionCardProps) => {
   return (
     <Card
       style={{ backgroundColor: "none !important" }}
-      className="shadow-none bg-[#F4F4F5]  w-full"
+      className="shadow-none bg-transparent  w-full"
     >
       <CardHeader>
-        <p className="text-lg font-bold">{title}</p>
+        <p className="text-3xl leading-9 font-bold">{title}</p>
       </CardHeader>
       <CardBody className={`${className}`}>{children}</CardBody>
     </Card>
