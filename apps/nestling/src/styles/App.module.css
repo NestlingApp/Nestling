@@ -1,5 +1,9 @@
 /* App.module.css */
 
 .cardBody{
-    padding: 12px;
+    padding: 16px;
+}
+.chip{ 
+    margin-top: 8px;
+    margin-right: 8px;
 }

@@ -1,4 +1,5 @@
 import { Card, CardBody } from "@nextui-org/card";
+import { Chip } from "@nextui-org/react";
 import styles from "@Styles/App.module.css";
 import React from "react";
 
@@ -17,6 +18,13 @@ const PropertySummaryCard = ({ summary }: PropertySummaryCardProps) => {
             className="overflow-y-scroll text-wrap"
           >
             <p className="text-m w-full">{summary}</p>
+          </div>
+          <div className="mt-4">
+            <Chip className={styles.chip}>Townhouse</Chip>
+            <Chip className={styles.chip}>2-Storey</Chip>
+            <Chip className={styles.chip}>Year Build 2010</Chip>
+            <Chip className={styles.chip}>Garage</Chip>
+            <Chip className={styles.chip}>Mountain View</Chip>
           </div>
         </div>
       </CardBody>

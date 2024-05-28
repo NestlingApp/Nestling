@@ -15,6 +15,17 @@
             ],
             "cardType": "OVERVIEW_METRIC",
             "title": "Rooms"
+          },  {
+            "id": "randomID1",
+            "size": 2,
+            "contentPath": "Land",
+            "keys": [
+            
+              "SizeFrontage",
+              "SizeTotal"
+            ],
+            "cardType": "OVERVIEW_METRIC",
+            "title": "Rooms"
           },
           {
             "id": "randomID4",
@@ -27,17 +38,7 @@
             "cardType": "OVERVIEW_METRIC",
             "title": "Rooms"
           },
-          {
-            "id": "randomID1",
-            "size": 2,
-            "contentPath": "Land",
-            "keys": [
-              "SizeTotal",
-              "SizeFrontage"
-            ],
-            "cardType": "OVERVIEW_METRIC",
-            "title": "Rooms"
-          },
+        
           {
             "id": "randomID2",
             "size": 2,

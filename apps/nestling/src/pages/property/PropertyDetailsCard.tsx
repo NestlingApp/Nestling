@@ -2,7 +2,10 @@ import { RCAProperty } from "@Data/reatlorca/types";
 import { Card, CardBody } from "@nextui-org/card";
 import styles from "@Styles/App.module.css";
 import { useCopyToClipboard } from "usehooks-ts";
+import { useSnackbar } from "react-simple-snackbar";
+import { Square2StackIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { Button } from "@nextui-org/react";
 
 interface PropertyDetailsCardProps {
   property: RCAProperty;
@@ -15,14 +18,16 @@ const PropertyDetailsCard = ({
 }: PropertyDetailsCardProps) => {
   const [copiedText, copy] = useCopyToClipboard();
   const formattedAddress = property.Address.AddressText.replace("|", " ");
-
-  const handleCopy = (text: string) => () => {
+  const [openSnackbar] = useSnackbar();
+  const handleCopy = (label: string, text: string) => {
+    console.log("ee");
     copy(text)
       .then(() => {
         console.log("Copied!", { text });
+        openSnackbar(`${label} copied to clipboard`, [2000]);
       })
       .catch((error) => {
-        console.error("Failed to copy!", error);
+        openSnackbar(`Failed to copy ${label}!`, [2000]);
       });
   };
 
@@ -34,25 +39,35 @@ const PropertyDetailsCard = ({
         <div>
           <p className="text-2xl font-bold mb-2">{property.Price}</p>
           <div>
-            <p className="text-l font-bold mb-2">Address</p>
-            <p
-              onClick={() => {
-                handleCopy(formattedAddress);
-              }}
-              className="text-m w-1/2"
-            >
-              {formattedAddress}
-            </p>
+            <p className="text-xl leading-7 font-bold mb-2">Address</p>
+            <div className="flex justify-start group">
+              <p className="text-lg w-1/2">{formattedAddress}</p>
+              <Button
+                onClick={() => {
+                  console.log("copy clicked");
+                  handleCopy("Address", formattedAddress);
+                }}
+                className="bg-transparent opacity-0 group-hover:opacity-100"
+                isIconOnly
+              >
+                <Square2StackIcon className="h-6 w-6" />
+              </Button>
+            </div>
           </div>
-          <p className="text-l font-bold mb-2">MLS® Number</p>
-          <p
-            onClick={() => {
-              handleCopy(mlsNumber);
-            }}
-            className="text-m w-1/2"
-          >
-            {mlsNumber}
-          </p>
+          <p className="text-xl leading-7 font-bold mt-4">MLS® Number</p>
+          <div className="flex justify-start items-center group">
+            <p className="text-m  ">{mlsNumber}</p>
+            <Button
+              onClick={() => {
+                console.log("copy clicked");
+                handleCopy("MLS Number", mlsNumber);
+              }}
+              className="bg-transparent opacity-0 group-hover:opacity-100"
+              isIconOnly
+            >
+              <Square2StackIcon className="h-6 w-6" />
+            </Button>
+          </div>
         </div>
       </CardBody>
     </Card>

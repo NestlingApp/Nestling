@@ -31,6 +31,8 @@ import DraggableCard from "./cards/DraggableCard";
 import SectionCard from "./SectionCard";
 import OverviewMetricCard from "./cards/OverviewMetricCard";
 import CardFactory from "./cards/CardFactory";
+import MultiListCard from "./cards/MultiListCard";
+import ListCard from "./cards/ListCard";
 
 const initialItems = [...Array(30).keys()].map((i) => i + 1);
 
@@ -94,6 +96,8 @@ const CardLayout = ({ data }) => {
                       id={card.id}
                       activeId={activeId}
                     >
+                      <ListCard />
+                      <MultiListCard />
                       <CardFactory config={card} data={data[idx]} />
                     </DraggableCard>
                   ))}
