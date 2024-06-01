@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { KeyboardEvent, MouseEvent, useState } from "react";
 import {
   Chip,
   ClickAwayListener,
@@ -8,32 +8,39 @@ import {
   SpeedDialIcon,
   TextField,
 } from "@mui/material";
-
-import styles from "@Styles/App.module.css";
-
 import { PencilSquareIcon, InboxIcon } from "@heroicons/react/24/outline";
+import styles from "@Styles/App.module.css";
 
 const ChatWidget = () => {
   const [showChat, setShowChat] = useState<boolean>(false);
+  const [messages, setMessages] = useState<string[]>([]);
+  const [message, setMessage] = useState<string>("");
+
   const actions = [
     { icon: <InboxIcon className="w-6" />, name: "Chat Log" },
     { icon: <PencilSquareIcon className="w-6" />, name: "New Chat" },
   ];
-  const [messages, setMessages] = useState<string[]>([]);
-  const [message, setMessage] = useState<string>("");
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter") {
+      setMessages((prevMessages) => [message, ...prevMessages]);
+      setMessage("");
+      event.preventDefault();
+    }
+  };
+
+  const toggleShowChat = (event: MouseEvent<HTMLDivElement>) => {
+    setShowChat((prevShowChat) => !prevShowChat);
+    event.stopPropagation();
+  };
 
   return (
-    <div className=" flex fixed bottom-10 right-10 items-end">
-      <ClickAwayListener
-        onClickAway={() => {
-          console.log("click ", showChat);
-          if (showChat) setShowChat(false);
-        }}
-      >
+    <div className="flex fixed bottom-10 right-10 items-end">
+      <ClickAwayListener onClickAway={() => setShowChat(false)}>
         <Grow style={{ transformOrigin: "bottom right" }} in={showChat}>
           <div
+            className={`flex flex-col justify-end items-end mr-3 ${styles.fade}`}
             style={{ height: "300px", width: "300px" }}
-            className={`flex flex-col justify-end  items-end mr-3 ${styles.fade}`}
           >
             {messages
               .slice(0, 5)
@@ -41,44 +48,26 @@ const ChatWidget = () => {
               .map((message, idx) => (
                 <Chip
                   key={`id-${message}-${idx}`}
-                  className="my-1 py-2 mr-4 bg-green-800 text-white w-auto h-auto"
                   label={message}
-                  sx={{
-                    ".MuiChip-label": {
-                      display: "block",
-                      whiteSpace: "normal",
-                    },
-                  }}
+                  className="my-1 py-2 mr-4 bg-green-800 text-white"
+                  sx={{ ".MuiChip-label": { whiteSpace: "normal" } }}
                 />
               ))}
-
             <TextField
               label="Chat"
               fullWidth
               value={message}
-              onChange={(ev) => setMessage(ev.target.value)}
-              onKeyDown={(ev) => {
-                console.log(`Pressed keyCode ${ev.key}`);
-                if (ev.key === "Enter") {
-                  messages.unshift(message);
-                  setMessages(messages);
-                  setMessage("");
-                  ev.preventDefault();
-                }
-              }}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
           </div>
         </Grow>
       </ClickAwayListener>
       <SpeedDial
         icon={<SpeedDialIcon />}
-        ariaLabel={""}
+        ariaLabel="Chat options"
         onOpen={() => setShowChat(true)}
-        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-          console.log("here", showChat);
-          setShowChat(!showChat);
-          e.stopPropagation();
-        }}
+        onClick={toggleShowChat}
       >
         {actions.map((action) => (
           <SpeedDialAction
