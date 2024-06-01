@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import { Chip } from "@mui/material";
 import React from "react";
 
@@ -8,22 +8,28 @@ interface PropertySummaryCardProps {
 
 const PropertySummaryCard = ({ summary }: PropertySummaryCardProps) => {
   return (
-    <Card elevation={0} className="w-full ">
-      <CardContent className={"p-5 text-left"}>
+    <Card elevation={0} sx={{ width: "100%" }}>
+      <CardContent style={{ textAlign: "left" }}>
         <div>
-          <p className="text-xl font-bold mb-2">Summary</p>
+          <Typography variant="h6" gutterBottom>
+            Summary
+          </Typography>
           <div
             style={{ height: "160px" }}
             className="overflow-y-scroll text-wrap"
           >
             <p className="text-m w-full">{summary}</p>
           </div>
-          <div className="mt-4 text-left">
-            <Chip className="m-1" label="Townhouse" />
-            <Chip className="m-1" label="2-Storey" />
-            <Chip className="m-1" label="Year Build 2010" />
-            <Chip className="m-1" label="Garage" />
-            <Chip className="m-1" label="Mountain View" />
+          <div className="mt-4">
+            <Chip className="mb-1 mr-1" color="primary" label="Townhouse" />
+            <Chip className="mb-1 mr-1" color="primary" label="2-Storey" />
+            <Chip
+              className="mb-1 mr-1"
+              color="primary"
+              label="Year Build 2010"
+            />
+            <Chip className="mb-1 mr-1" color="primary" label="Garage" />
+            <Chip className="mb-1 mr-1" color="primary" label="Mountain View" />
           </div>
         </div>
       </CardContent>

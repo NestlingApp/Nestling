@@ -1,12 +1,11 @@
 import { RCAProperty } from "@Data/reatlorca/types";
-import { Card, CardBody } from "@nextui-org/card";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import styles from "@Styles/App.module.css";
 import { useCopyToClipboard } from "usehooks-ts";
 import { useSnackbar } from "react-simple-snackbar";
 import { Square2StackIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import { Button } from "@nextui-org/react";
-import { Typography } from "@mui/material";
+import { IconButton } from "@mui/material";
 
 interface PropertyDetailsCardProps {
   property: RCAProperty;
@@ -33,48 +32,56 @@ const PropertyDetailsCard = ({
   };
 
   return (
-    <Card shadow="none" className="w-full h-200">
-      <CardBody
-        className={`flex flex-col justify-around items-start ${styles.cardBody}`}
+    <Card elevation={0} sx={{ width: "100%" }}>
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems: "flex-start",
+          textAlign: "left",
+        }}
       >
+        <Typography sx={{ fontWeight: 600 }} variant="h5" gutterBottom>
+          {property.Price}
+        </Typography>
         <div>
-          <Typography className="text-2xl font-bold mb-2">
-            {property.Price}
+          <Typography sx={{ fontWeight: 600 }} variant="h6" gutterBottom>
+            Address
           </Typography>
-          <div>
-            <Typography className="text-xl leading-7 font-bold mb-2">
-              Address
+          <div className="flex justify-start items-center  group">
+            <Typography
+              sx={{ fontWeight: 600, width: "50%" }}
+              variant="body1"
+              gutterBottom
+            >
+              {formattedAddress}
             </Typography>
-            <div className="flex justify-start group">
-              <p className="text-lg w-1/2">{formattedAddress}</p>
-              <Button
-                onClick={() => {
-                  console.log("copy clicked");
-                  handleCopy("Address", formattedAddress);
-                }}
-                className="bg-transparent opacity-0 group-hover:opacity-100"
-                isIconOnly
-              >
-                <Square2StackIcon className="h-6 w-6" />
-              </Button>
-            </div>
-          </div>
-          <p className="text-xl leading-7 font-bold mt-4">MLS® Number</p>
-          <div className="flex justify-start items-center group">
-            <p className="text-m  ">{mlsNumber}</p>
-            <Button
+            <IconButton
               onClick={() => {
                 console.log("copy clicked");
-                handleCopy("MLS Number", mlsNumber);
+                handleCopy("Address", formattedAddress);
               }}
               className="bg-transparent opacity-0 group-hover:opacity-100"
-              isIconOnly
             >
               <Square2StackIcon className="h-6 w-6" />
-            </Button>
+            </IconButton>
           </div>
         </div>
-      </CardBody>
+        <p className="text-xl leading-7 font-bold mt-4">MLS® Number</p>
+        <div className="flex justify-start items-center group">
+          <p className="text-m ">{mlsNumber}</p>
+          <IconButton
+            onClick={() => {
+              console.log("copy clicked");
+              handleCopy("MLS Number", mlsNumber);
+            }}
+            className="bg-transparent opacity-0 group-hover:opacity-100"
+          >
+            <Square2StackIcon className="h-6 w-6" />
+          </IconButton>
+        </div>
+      </CardContent>
     </Card>
   );
 };
