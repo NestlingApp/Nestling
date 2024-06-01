@@ -22,8 +22,8 @@ const ChatWidget = () => {
   ];
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Enter") {
-      setMessages((prevMessages) => [message, ...prevMessages]);
+    if (event.key === "Enter" && message !== "") {
+      setMessages((prevMessages) => [...prevMessages, message]);
       setMessage("");
       event.preventDefault();
     }
@@ -42,18 +42,18 @@ const ChatWidget = () => {
             className={`flex flex-col justify-end items-end mr-3 ${styles.fade}`}
             style={{ height: "300px", width: "300px" }}
           >
-            {messages
-              .slice(0, 5)
-              .reverse()
-              .map((message, idx) => (
-                <Chip
-                  key={`id-${message}-${idx}`}
-                  label={message}
-                  className="my-1 py-2 mr-4 bg-green-800 text-white"
-                  sx={{ ".MuiChip-label": { whiteSpace: "normal" } }}
-                />
-              ))}
+            {messages.map((message, idx) => (
+              <Chip
+                key={`id-${message}-${idx}`}
+                label={message}
+                className="my-1 py-2 mr-4 bg-green-800 text-white w-auto h-auto"
+                sx={{
+                  ".MuiChip-label": { whiteSpace: "normal", display: "block" },
+                }}
+              />
+            ))}
             <TextField
+              className="mt-2"
               label="Chat"
               fullWidth
               value={message}
