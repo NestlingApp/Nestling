@@ -8,7 +8,11 @@ import {
   SpeedDialIcon,
   TextField,
 } from "@mui/material";
-import { PencilSquareIcon, InboxIcon } from "@heroicons/react/24/outline";
+import {
+  PencilSquareIcon,
+  InboxIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 import styles from "@Styles/App.module.css";
 
 const ChatWidget = () => {
@@ -67,7 +71,7 @@ const ChatWidget = () => {
       </ClickAwayListener>
       <SpeedDial
         color="primary"
-        icon={<SpeedDialIcon />}
+        icon={<SparklesIcon className="w-6" />}
         ariaLabel="Chat options"
         onOpen={() => setShowChat(true)}
         onClick={toggleShowChat}
