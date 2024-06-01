@@ -54,7 +54,8 @@ const ChatWidget = () => {
               />
             ))}
             <TextField
-              className="mt-2"
+              variant="outlined"
+              className="mt-2 bg-white"
               label="Chat"
               fullWidth
               value={message}
