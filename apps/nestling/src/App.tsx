@@ -1,19 +1,26 @@
-import { NextUIProvider } from "@nextui-org/react";
 import SnackbarProvider from "react-simple-snackbar";
+import { StyledEngineProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 
 import "./App.css";
 import PropertyPage from "@Pages/property/PropertyPage";
 
 const App = () => {
+  const theme = createTheme({
+    palette: { primary: { main: "#3f51b5" } },
+  });
+
   return (
-    <NextUIProvider>
-      <SnackbarProvider>
-        <div className="App">
-          <PropertyPage />
-        </div>
-      </SnackbarProvider>
-    </NextUIProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+          <div className="App">
+            <PropertyPage />
+          </div>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

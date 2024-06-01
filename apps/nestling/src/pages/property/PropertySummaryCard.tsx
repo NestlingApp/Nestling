@@ -1,6 +1,5 @@
-import { Card, CardBody } from "@nextui-org/card";
-import { Chip } from "@nextui-org/react";
-import styles from "@Styles/App.module.css";
+import { Card, CardContent } from "@mui/material";
+import { Chip } from "@mui/material";
 import React from "react";
 
 interface PropertySummaryCardProps {
@@ -9,8 +8,8 @@ interface PropertySummaryCardProps {
 
 const PropertySummaryCard = ({ summary }: PropertySummaryCardProps) => {
   return (
-    <Card shadow="none" className="w-full ">
-      <CardBody className={styles.cardBody}>
+    <Card elevation={0} className="w-full ">
+      <CardContent className={"p-5 text-left"}>
         <div>
           <p className="text-xl font-bold mb-2">Summary</p>
           <div
@@ -19,15 +18,15 @@ const PropertySummaryCard = ({ summary }: PropertySummaryCardProps) => {
           >
             <p className="text-m w-full">{summary}</p>
           </div>
-          <div className="mt-4">
-            <Chip className={styles.chip}>Townhouse</Chip>
-            <Chip className={styles.chip}>2-Storey</Chip>
-            <Chip className={styles.chip}>Year Build 2010</Chip>
-            <Chip className={styles.chip}>Garage</Chip>
-            <Chip className={styles.chip}>Mountain View</Chip>
+          <div className="mt-4 text-left">
+            <Chip className="m-1" label="Townhouse" />
+            <Chip className="m-1" label="2-Storey" />
+            <Chip className="m-1" label="Year Build 2010" />
+            <Chip className="m-1" label="Garage" />
+            <Chip className="m-1" label="Mountain View" />
           </div>
         </div>
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

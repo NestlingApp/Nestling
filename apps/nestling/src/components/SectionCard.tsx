@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Card, CardContent, CardHeader } from "@mui/material";
 import React, { ReactNode } from "react";
 
 interface SectionCardProps {
@@ -9,13 +9,16 @@ interface SectionCardProps {
 const SectionCard = ({ title, children, className }: SectionCardProps) => {
   return (
     <Card
-      style={{ backgroundColor: "none !important" }}
-      className="shadow-none bg-transparent  w-full"
+      elevation={0}
+      // sx={{ backgroundColor: "transparent" }}
+      className="shadow-none !bg-transparent  w-full"
     >
-      <CardHeader>
-        <p className="text-3xl leading-9 font-bold">{title}</p>
-      </CardHeader>
-      <CardBody className={`${className}`}>{children}</CardBody>
+      <CardHeader
+        // style={{ textAlign: "left" }}
+        className="text-3xl leading-9 font-bold text-left bg-transparent"
+        title={title}
+      />
+      <CardContent sx={{ display: "flex", gap: 3 }}>{children}</CardContent>
     </Card>
   );
 };

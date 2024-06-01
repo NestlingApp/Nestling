@@ -1,6 +1,6 @@
 import React from "react";
 import { ICardConfig } from "data/layout/ICardLayout";
-import { Card, CardBody } from "@nextui-org/react";
+import { Card, CardContent } from "@mui/material";
 
 interface OverviewMetricCardProps {
   data: Record<string, any>;
@@ -12,17 +12,19 @@ export const OverviewMetricCard = ({
   config,
 }: OverviewMetricCardProps) => {
   return (
-    <Card shadow="none" className="w-full">
-      <CardBody className="flex flex-row justify-around items-center">
+    <Card elevation={0} className="w-full">
+      <CardContent className="flex flex-row justify-around items-center">
         {config.keys.map((key: string) => {
           return (
             <div className="text-center">
-              <h2>{key}</h2>
-              <span className="text-2xl bold">{data[key]}</span>
+              <h2 className="text-lg leading-7 font-bold">{key}</h2>
+              <span className="text-4xl leading-10 font-medium">
+                {data[key]}
+              </span>
             </div>
           );
         })}
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "@Components/Navbar";
-import { Card, CardBody, CardHeader, Spacer } from "@nextui-org/react";
+import { Card, CardBody, CardHeader, Input, Spacer } from "@nextui-org/react";
 import PropertyCard from "@Components/PropertyCard";
 import data from "../../data/properties.json";
 import Hero from "@Components/Hero";
@@ -9,6 +9,8 @@ import { RCAListing, RCAProperty } from "data/reatlorca/types";
 import SectionCard from "@Components/SectionCard";
 import PropertyDetailsCard from "./PropertyDetailsCard";
 import PropertySummaryCard from "./PropertySummaryCard";
+import ChatWidget from "@Components/widgets/ChatWidget";
+
 const PropertyPage = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const handleOnSubmit = (value: string) => {
@@ -18,6 +20,7 @@ const PropertyPage = () => {
   const listings: RCAListing[] = data.properties;
   const listing: RCAListing = listings[1];
   const property = listings[0].Property;
+
   return (
     <div className="bg-[#F4F4F5]" style={{ backgroundColor: "#F4F4F5" }}>
       <NavBar onSubmit={handleOnSubmit} />
@@ -56,6 +59,7 @@ const PropertyPage = () => {
           </Card>
         </div>
       </div> */}
+      <ChatWidget />
     </div>
   );
 };

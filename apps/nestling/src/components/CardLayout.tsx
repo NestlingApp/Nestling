@@ -90,16 +90,11 @@ const CardLayout = ({ data }) => {
                   }}
                 >
                   {section.cards.map((card: ICardConfig, idx: number) => (
-                    <DraggableCard
-                      size={card.size}
-                      key={card.id}
-                      id={card.id}
-                      activeId={activeId}
-                    >
+                    <>
                       <ListCard />
                       <MultiListCard />
                       <CardFactory config={card} data={data[idx]} />
-                    </DraggableCard>
+                    </>
                   ))}
                 </div>
               </SectionCard>
@@ -107,13 +102,13 @@ const CardLayout = ({ data }) => {
           </div>
         </SortableContext>
 
-        <DragOverlay>
+        {/* <DragOverlay>
           {activeId ? (
             <DraggableOverlayCard id={activeId}>
               <SectionCard title={`Section #${activeId}`} />
             </DraggableOverlayCard>
           ) : null}
-        </DragOverlay>
+        </DragOverlay> */}
       </DndContext>
     </>
   );

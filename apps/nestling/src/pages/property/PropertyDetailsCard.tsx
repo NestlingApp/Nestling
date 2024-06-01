@@ -6,6 +6,7 @@ import { useSnackbar } from "react-simple-snackbar";
 import { Square2StackIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Button } from "@nextui-org/react";
+import { Typography } from "@mui/material";
 
 interface PropertyDetailsCardProps {
   property: RCAProperty;
@@ -37,9 +38,13 @@ const PropertyDetailsCard = ({
         className={`flex flex-col justify-around items-start ${styles.cardBody}`}
       >
         <div>
-          <p className="text-2xl font-bold mb-2">{property.Price}</p>
+          <Typography className="text-2xl font-bold mb-2">
+            {property.Price}
+          </Typography>
           <div>
-            <p className="text-xl leading-7 font-bold mb-2">Address</p>
+            <Typography className="text-xl leading-7 font-bold mb-2">
+              Address
+            </Typography>
             <div className="flex justify-start group">
               <p className="text-lg w-1/2">{formattedAddress}</p>
               <Button
