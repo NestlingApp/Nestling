@@ -8,7 +8,7 @@ import PropertyPage from "@Pages/property/PropertyPage";
 
 const App = () => {
   const theme = createTheme({
-    palette: { primary: { main: "#3f51b5" } },
+    palette: { primary: { main: "#683fb5" } },
   });
 
   return (

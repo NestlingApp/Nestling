@@ -46,7 +46,8 @@ const ChatWidget = () => {
               <Chip
                 key={`id-${message}-${idx}`}
                 label={message}
-                className="my-1 py-2 mr-4 bg-green-800 text-white w-auto h-auto"
+                color="primary"
+                className="my-1 py-2 mr-4 text-white w-auto h-auto"
                 sx={{
                   ".MuiChip-label": { whiteSpace: "normal", display: "block" },
                 }}
@@ -64,6 +65,7 @@ const ChatWidget = () => {
         </Grow>
       </ClickAwayListener>
       <SpeedDial
+        color="primary"
         icon={<SpeedDialIcon />}
         ariaLabel="Chat options"
         onOpen={() => setShowChat(true)}

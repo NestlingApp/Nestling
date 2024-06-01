@@ -3,6 +3,9 @@ const {nextui} = require("@nextui-org/theme");
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  corePlugins: {
+    preflight: false,
+  },
   important: true,
   content: [
     "../../node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
