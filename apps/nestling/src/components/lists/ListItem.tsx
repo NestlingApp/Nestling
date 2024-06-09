@@ -1,8 +1,4 @@
-import { ICardConfig } from "@Data/layout/ICardLayout";
-import { Card, CardBody } from "@nextui-org/card";
-import { ListItem as MUIListItem } from "@mui/material";
-import { Divider } from "@nextui-org/react";
-import styles from "@Styles/App.module.css";
+import { Divider, ListItem as MUIListItem } from "@mui/material";
 import React from "react";
 
 interface ListItemProps {
