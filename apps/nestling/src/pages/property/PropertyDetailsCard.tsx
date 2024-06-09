@@ -2,7 +2,7 @@ import { RCAProperty } from "@Data/reatlorca/types";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import styles from "@Styles/App.module.css";
 import { useCopyToClipboard } from "usehooks-ts";
-import { useSnackbar } from "react-simple-snackbar";
+
 import { Square2StackIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { IconButton } from "@mui/material";
@@ -18,16 +18,16 @@ const PropertyDetailsCard = ({
 }: PropertyDetailsCardProps) => {
   const [copiedText, copy] = useCopyToClipboard();
   const formattedAddress = property.Address.AddressText.replace("|", " ");
-  const [openSnackbar] = useSnackbar();
+
   const handleCopy = (label: string, text: string) => {
     console.log("ee");
     copy(text)
       .then(() => {
         console.log("Copied!", { text });
-        openSnackbar(`${label} copied to clipboard`, [2000]);
+        // openSnackbar(`${label} copied to clipboard`, [2000]);
       })
       .catch((error) => {
-        openSnackbar(`Failed to copy ${label}!`, [2000]);
+        // openSnackbar(`Failed to copy ${label}!`, [2000]);
       });
   };
 
@@ -68,7 +68,7 @@ const PropertyDetailsCard = ({
             </IconButton>
           </div>
         </div>
-        <p className="text-xl leading-7 font-bold mt-4">MLS® Number</p>
+        <p className="text-xl leading-7 font-bold  mt-4">MLS® Number</p>
         <div className="flex justify-start items-center group">
           <p className="text-m ">{mlsNumber}</p>
           <IconButton

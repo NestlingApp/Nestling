@@ -1,6 +1,5 @@
 import { ICardConfig } from "@Data/layout/ICardLayout";
-import { Card, CardBody } from "@nextui-org/card";
-import styles from "@Styles/App.module.css";
+import { Card, CardContent } from "@mui/material";
 import React from "react";
 
 interface TextCardProps {
@@ -10,8 +9,8 @@ interface TextCardProps {
 
 const TextCard = ({ data, config }: TextCardProps) => {
   return (
-    <Card shadow="none" className="w-full ">
-      <CardBody className={styles.cardBody}>
+    <Card elevation={0} className="w-full ">
+      <CardContent>
         <div>
           <p className="text-xl font-bold mb-2">{config.title}</p>
           <div
@@ -20,14 +19,14 @@ const TextCard = ({ data, config }: TextCardProps) => {
           >
             {config.keys.map((key: string) => {
               return (
-                <div className="text-left">
-                  <p className="text-m w-full">{data[key]}</p>
+                <div key={`${config.title}-${key}`} className="text-left">
+                  <p className="text-m w-full">{data?.[key]}</p>
                 </div>
               );
             })}
           </div>
         </div>
-      </CardBody>
+      </CardContent>
     </Card>
   );
 };

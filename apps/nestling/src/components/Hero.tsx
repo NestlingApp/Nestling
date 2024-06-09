@@ -1,7 +1,7 @@
-import { Card, CardFooter, CardHeader, Image, Button } from "@nextui-org/react";
+import { Card, CardMedia } from "@mui/material";
 import React from "react";
 
-import Lightbox from "yet-another-react-lightbox";
+import Lightbox, { SlideImage } from "yet-another-react-lightbox";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
@@ -21,15 +21,14 @@ const Hero = ({ property }: HeroProps) => {
   const height = 315;
   const width = 500;
   const [isLightboxOpen, setIsLightboxOpen] = React.useState(false);
-  const slide: Slide = {
+
+  const slideImage: SlideImage = {
     src: property?.Photo?.[0]?.HighResPath,
     width,
     height,
-    title: property.Address.AddressText,
-    description: "Mollie Sivaram",
   };
-  const slides: Slide[] = [slide, slide, slide, slide];
 
+  const slides: Slide[] = [slideImage, slideImage, slideImage, slideImage];
   return (
     <>
       <Lightbox
@@ -48,78 +47,68 @@ const Hero = ({ property }: HeroProps) => {
         <div className="flex max-w-screen-lg">
           <div className="flex content-center flex-wrap mr-1 ">
             <Card
-              isPressable
-              className="m-2 w-[500px] h-[315px]"
+              sx={{ width: 500, height: 315, margin: "2em" }}
               onClick={() => {
                 console.log("clicked", setIsLightboxOpen(true));
               }}
             >
-              <Image
-                removeWrapper
-                alt="Relaxing app background"
-                className="z-0 w-full h-full object-cover"
-                src={property?.Photo?.[0]?.HighResPath}
+              <CardMedia
+                title="Relaxing app background"
+                sx={{ height: 500 }}
+                image={property?.Photo?.[0]?.HighResPath}
               />
             </Card>
           </div>
           <div className="flex w-[500px] content-center flex-wrap justify-center ml-1 flex-col">
             <div className="flex m-1 ">
               <Card
-                isPressable
                 className="m-1 w-[250px] h-[150px]"
                 onClick={() => {
                   console.log("clicked", setIsLightboxOpen(true));
                 }}
               >
-                <Image
-                  removeWrapper
-                  alt="Relaxing app background"
+                <CardMedia
+                  title="Relaxing app background"
                   className="z-0 w-full h-full object-cover"
-                  src={property?.Photo?.[0]?.HighResPath}
+                  image={property?.Photo?.[0]?.HighResPath}
                 />
               </Card>
               <Card
-                isPressable
                 className="m-1 w-[250px] h-[150px] "
                 onClick={() => {
                   console.log("clicked", setIsLightboxOpen(true));
                 }}
               >
-                <Image
-                  removeWrapper
-                  alt="Relaxing app background"
+                <CardMedia
+                  title="Relaxing app background"
                   className="z-0 w-full h-full object-cover"
-                  src={property?.Photo?.[0]?.HighResPath}
+                  image={property?.Photo?.[0]?.HighResPath}
                 />
               </Card>
             </div>
             <div className="flex m-1">
               <Card
-                isPressable
                 className="m-1 w-[250px] h-[150px]"
                 onClick={() => {
                   console.log("clicked", setIsLightboxOpen(true));
                 }}
               >
-                <Image
-                  removeWrapper
-                  alt="Relaxing app background"
+                <CardMedia
+                  title="Relaxing app background"
                   className="z-0 w-full h-full object-cover"
-                  src={property?.Photo?.[0]?.HighResPath}
+                  image={property?.Photo?.[0]?.HighResPath}
                 />
               </Card>
               <Card
-                isPressable
                 className="m-1 w-[250px] h-[150px]"
                 onClick={() => {
                   console.log("clicked", setIsLightboxOpen(true));
                 }}
               >
-                <Image
-                  removeWrapper
-                  alt="Relaxing app background"
+                <CardMedia
+                  title="Relaxing app background"
                   className="z-0 w-full h-full object-cover"
-                  src={property?.Photo?.[0]?.HighResPath}
+                  image={property?.Photo?.[0]?.HighResPath}
                 />
               </Card>
             </div>

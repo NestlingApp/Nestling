@@ -16,10 +16,13 @@ export const OverviewMetricCard = ({
       <CardContent className="flex flex-row justify-around items-center">
         {config.keys.map((key: string) => {
           return (
-            <div className="text-center">
+            <div
+              key={`overview-${config?.title}-${key}`}
+              className="text-center"
+            >
               <h2 className="text-lg leading-7 font-bold">{key}</h2>
               <span className="text-4xl leading-10 font-medium">
-                {data[key]}
+                {data?.[key]}
               </span>
             </div>
           );

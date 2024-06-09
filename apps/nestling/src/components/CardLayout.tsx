@@ -80,7 +80,7 @@ const CardLayout = ({ data }) => {
             }}
           >
             {layout.sections.map((section) => (
-              <SectionCard title={section.title}>
+              <SectionCard key={section.title} title={section.title}>
                 <div
                   style={{
                     display: "grid",
@@ -90,11 +90,11 @@ const CardLayout = ({ data }) => {
                   }}
                 >
                   {section.cards.map((card: ICardConfig, idx: number) => (
-                    <>
+                    <div key={`section-${idx}`}>
                       <ListCard />
                       <MultiListCard />
                       <CardFactory config={card} data={data[idx]} />
-                    </>
+                    </div>
                   ))}
                 </div>
               </SectionCard>

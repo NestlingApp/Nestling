@@ -1,10 +1,11 @@
-import SnackbarProvider from "react-simple-snackbar";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
+import AppRoutes from "./AppRoutes";
 
 import "./App.css";
-import PropertyPage from "@Pages/property/PropertyPage";
+import { RouterProvider } from "react-router-dom";
+import { CssBaseline } from "@mui/material";
 
 const App = () => {
   const theme = createTheme({
@@ -14,11 +15,10 @@ const App = () => {
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <SnackbarProvider>
-          <div className="App">
-            <PropertyPage />
-          </div>
-        </SnackbarProvider>
+        <CssBaseline />
+        <div className="App">
+          <RouterProvider router={AppRoutes} />
+        </div>
       </ThemeProvider>
     </StyledEngineProvider>
   );

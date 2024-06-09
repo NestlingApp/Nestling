@@ -60,7 +60,7 @@ const ChatWidget = () => {
             <TextField
               variant="outlined"
               className="mt-2 bg-white"
-              label="Chat"
+              label="What can I assist you with today?"
               fullWidth
               value={message}
               onChange={(e) => setMessage(e.target.value)}
