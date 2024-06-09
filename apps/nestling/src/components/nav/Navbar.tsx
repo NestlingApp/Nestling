@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { RCAProperty } from "@Data/reatlorca/types";
+import { RCAListing, RCAProperty } from "@Data/reatlorca/types";
 
 interface LoaderDataType {
   listingIds: string[];
@@ -58,9 +58,6 @@ const NavBar = (props: any) => {
                   label="Listing"
                   onChange={handleChange}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
                   {listingIds.map((id: string) => (
                     <MenuItem key={id} value={id}>
                       {id}
