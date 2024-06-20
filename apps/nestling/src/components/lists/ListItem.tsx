@@ -1,4 +1,4 @@
-import { Divider, ListItem as MUIListItem } from "@mui/material";
+import { Divider, ListItem as MUIListItem, Typography } from "@mui/material";
 import React from "react";
 
 interface ListItemProps {
@@ -8,12 +8,10 @@ interface ListItemProps {
 
 const ListItem = ({ title, value }: ListItemProps) => {
   return (
-    <MUIListItem className="flex flex-col">
+    <MUIListItem dense className="flex flex-col">
       <div className="flex flex-row justify-between my-3 w-full">
-        {title && (
-          <p className="text-lg leading-7 font-bold max-w-1/2">{title}</p>
-        )}
-        <p className="text-xl leading-7 max-w-1/2 text-right">{value}</p>
+        {title && <Typography variant="subtitle2">{title}</Typography>}
+        <Typography variant="body1">{value}</Typography>
       </div>
       <Divider />
     </MUIListItem>

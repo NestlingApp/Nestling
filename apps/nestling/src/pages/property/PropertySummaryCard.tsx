@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Divider, Typography } from "@mui/material";
 import { Chip } from "@mui/material";
 import React from "react";
 
@@ -12,7 +12,7 @@ const PropertySummaryCard = ({ summary }: PropertySummaryCardProps) => {
       <CardContent style={{ textAlign: "left" }}>
         <div>
           <Typography variant="h6" gutterBottom>
-            Summary
+            Key Highlights
           </Typography>
           <div
             style={{ height: "160px" }}
@@ -20,6 +20,9 @@ const PropertySummaryCard = ({ summary }: PropertySummaryCardProps) => {
           >
             <p className="text-m w-full">{summary}</p>
           </div>
+          <Box sx={{ my: 2 }}>
+            <Divider />
+          </Box>
           <div className="mt-4">
             <Chip className="mb-1 mr-1" color="primary" label="Townhouse" />
             <Chip className="mb-1 mr-1" color="primary" label="2-Storey" />

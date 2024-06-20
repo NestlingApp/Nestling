@@ -9,7 +9,7 @@ interface TextCardProps {
 
 const TextCard = ({ data, config }: TextCardProps) => {
   return (
-    <Card elevation={0} className="w-full ">
+    <Card sx={{ mb: 2 }} elevation={0} className="w-full ">
       <CardContent>
         <div>
           <p className="text-xl font-bold mb-2">{config.title}</p>

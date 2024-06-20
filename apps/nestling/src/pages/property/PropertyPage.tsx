@@ -7,6 +7,7 @@ import PropertySummaryCard from "./PropertySummaryCard";
 
 import { useLoaderData } from "react-router-dom";
 import CardLayout from "@Components/CardLayout";
+import { Box } from "@mui/material";
 
 interface LoaderDataType {
   listing: RCAListing;
@@ -17,11 +18,16 @@ const PropertyPage = () => {
   return (
     <div className="flex flex-col mx-10">
       <Hero property={property} />
-      {/* TODO: Find replacement */}
-      {/* <Spacer y={6} x={4} /> */}
-      <div className="flex justify-center content-center">
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+          mt: 3,
+        }}
+      >
         <div className="max-w-screen-lg w-full">
-          <SectionCard className="flex flex-row gap-3" title="Property Details">
+          <SectionCard className="flex flex-row gap-3" title="Property Summary">
             <PropertyDetailsCard
               property={property}
               mlsNumber={listing.MlsNumber}
@@ -30,7 +36,7 @@ const PropertyPage = () => {
           </SectionCard>
           <CardLayout data={listing} />
         </div>
-      </div>
+      </Box>
     </div>
   );
 };

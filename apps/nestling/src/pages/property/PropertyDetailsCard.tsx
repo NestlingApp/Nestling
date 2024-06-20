@@ -20,7 +20,6 @@ const PropertyDetailsCard = ({
   const formattedAddress = property.Address.AddressText.replace("|", " ");
 
   const handleCopy = (label: string, text: string) => {
-    console.log("ee");
     copy(text)
       .then(() => {
         console.log("Copied!", { text });
@@ -42,13 +41,11 @@ const PropertyDetailsCard = ({
           textAlign: "left",
         }}
       >
-        <Typography sx={{ fontWeight: 600 }} variant="h5" gutterBottom>
+        <Typography sx={{ fontWeight: 600 }} variant="h6" gutterBottom>
           {property.Price}
         </Typography>
         <div>
-          <Typography sx={{ fontWeight: 600 }} variant="h6" gutterBottom>
-            Address
-          </Typography>
+          <Typography variant="subtitle2">Address</Typography>
           <div className="flex justify-start items-center  group">
             <Typography
               sx={{ fontWeight: 600, width: "50%" }}
@@ -68,9 +65,9 @@ const PropertyDetailsCard = ({
             </IconButton>
           </div>
         </div>
-        <p className="text-xl leading-7 font-bold  mt-4">MLS® Number</p>
+        <Typography variant="subtitle2">MLS® Number</Typography>
         <div className="flex justify-start items-center group">
-          <p className="text-m ">{mlsNumber}</p>
+          <Typography variant="body1">{mlsNumber}</Typography>
           <IconButton
             onClick={() => {
               console.log("copy clicked");

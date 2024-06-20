@@ -1,6 +1,6 @@
 import React from "react";
 import { ICardConfig } from "data/layout/ICardLayout";
-import { Card, CardContent } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 
 interface OverviewMetricCardProps {
   data: Record<string, any>;
@@ -11,20 +11,21 @@ export const OverviewMetricCard = ({
   data,
   config,
 }: OverviewMetricCardProps) => {
+  const spacing = config.keys?.length > 1 ? 2 : 7;
   return (
-    <Card elevation={0} className="w-full">
-      <CardContent className="flex flex-row justify-around items-center">
+    <Card sx={{ mb: 2 }} elevation={0} className="w-full">
+      <CardContent sx={{ my: spacing }}>
         {config.keys.map((key: string) => {
           return (
-            <div
+            <Box
               key={`overview-${config?.title}-${key}`}
-              className="text-center"
+              sx={{ textAlign: "center" }}
             >
-              <h2 className="text-lg leading-7 font-bold">{key}</h2>
-              <span className="text-4xl leading-10 font-medium">
-                {data?.[key]}
-              </span>
-            </div>
+              <Typography gutterBottom variant="subtitle2">
+                {key}
+              </Typography>
+              <Typography variant="h4">{data?.[key] || "N/A"}</Typography>
+            </Box>
           );
         })}
       </CardContent>

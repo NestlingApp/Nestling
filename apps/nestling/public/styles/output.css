@@ -523,6 +523,10 @@
   text-transform: uppercase !important;
 }
 
+.italic {
+  font-style: italic !important;
+}
+
 .leading-10 {
   line-height: 2.5rem !important;
 }
