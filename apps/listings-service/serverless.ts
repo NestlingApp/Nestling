@@ -1,5 +1,5 @@
-import Serverless from 'serverless/aws';
-import getListings from './src/http/getListings';
+import {Serverless} from 'serverless/aws';
+import getListings from './http/getListings';
 
 const serverlessConfiguration: Serverless = {
     service: 'ListingsService',

@@ -1,4 +1,4 @@
-import { LISTING_BUCKET } from "../../../utils/constants";
+import { LISTING_BUCKET } from "../../utils/constants";
 
 export default {
     handler: './src/http/getListings/handler.main',
