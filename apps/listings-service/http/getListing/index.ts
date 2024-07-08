@@ -1,15 +1,15 @@
 import { LISTING_BUCKET } from "../../utils/constants";
 
 export default {
-    handler: './http/getListings/handler.main',
+    handler: './http/getListing/handler.main',
     events:[
         {
             http:{
                 method: 'GET',
-                path: '/listings-service/listings',
+                path: '/listings-service/listing/{mls}',
                 document: {
-                    summary: 'Get all listings',
-                    description: 'Get all listings',
+                    summary: 'Get listing by mls',
+                    description: 'Get listing by mls',
                     methodResponses: [
                         {
                             statusCode: '200',
@@ -32,8 +32,8 @@ export default {
         {
             Effect: 'Allow',
             Action: [
-                's3:GetObject',
                 's3: ListBucket',
+                's3:GetObject',
             ],
             Resource: [
                 `arn:aws:s3:::${LISTING_BUCKET}`,
