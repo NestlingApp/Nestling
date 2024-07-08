@@ -9,7 +9,7 @@ interface ListItemProps {
 const ListItem = ({ title, value }: ListItemProps) => {
   return (
     <MUIListItem dense className="flex flex-col">
-      <div className="flex flex-row justify-between my-3 w-full">
+      <div className="flex flex-row justify-between w-full">
         {title && <Typography variant="subtitle2">{title}</Typography>}
         <Typography variant="body1">{value}</Typography>
       </div>
