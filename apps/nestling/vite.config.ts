@@ -39,6 +39,7 @@ export default defineConfig({
     alias: [
       { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
       { find: '@Components', replacement: fileURLToPath(new URL('./src/components', import.meta.url)) },
+      { find: '@Services', replacement: fileURLToPath(new URL('./src/services', import.meta.url)) },
       { find: '@Pages', replacement: fileURLToPath(new URL('./src/pages', import.meta.url)) },
       { find: '@Images', replacement: fileURLToPath(new URL('./src/assets/img', import.meta.url)) },
       { find: '@Data', replacement: fileURLToPath(new URL('./src/data', import.meta.url)) },

@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { RCAListing, RCAProperty } from "@Data/reatlorca/types";
+import { useGetListingsQuery } from "@Services/listing";
 
 interface LoaderDataType {
   listingIds: string[];
@@ -22,6 +23,8 @@ interface LoaderDataType {
 const NavBar = (props: any) => {
   const navigate = useNavigate();
   const { listingIds, listing } = useLoaderData() as LoaderDataType;
+
+  const { data, error, isLoading } = useGetListingsQuery();
 
   const [listingId, setCurrentListingId] = React.useState("");
 
@@ -35,6 +38,7 @@ const NavBar = (props: any) => {
       setCurrentListingId(listing.MlsNumber);
     }
   }, [listing.MlsNumber]);
+  console.log("sadasd", data, error, isLoading);
 
   return (
     <>

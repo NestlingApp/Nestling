@@ -41,8 +41,8 @@ const ChatWidget = () => {
 
   return (
     <ChatAiWidget
-      applicationId="AE8F7EEA-4555-4F86-AD8B-5E0BD86BFE67" // Your Sendbird Application ID
-      botId="khan-academy-bot" // Your Bot ID
+      applicationId="E6FFFED2-EE27-4761-ADFF-D15B13F7D13B" // Your Sendbird Application ID
+      botId="onboarding_bot" // Your Bot ID
     />
     // <div className="flex fixed bottom-10 right-10 items-end">
     //   <ClickAwayListener onClickAway={() => setShowChat(false)}>
