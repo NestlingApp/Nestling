@@ -1,16 +1,26 @@
+import { listingsApi } from "@Services/listings";
+import { store } from "@/store";
 
-import { getListing,getListingIds } from "./listings";
-interface ParamsPayload {
-  params:{
+type ParamsPayload = {
+  params: {
     listingId?: string;
+  };
+};
+
+export const loader = async (payload: ParamsPayload) => {
+  const { listingId } = payload.params;
+  const result = await store.dispatch(
+    listingsApi.endpoints.getListings.initiate()
+  );
+  store.dispatch(listingsApi.util.resetApiState());
+
+  // Handle possible errors
+  if (result.error) {
+    throw new Response("Failed to fetch listing", { status: 500 });
   }
-}
 
-export async function loader(payload: ParamsPayload) {
+  const listingIds =
+    result.data?.listings?.map((listing) => listing.listing_id) || [];
 
-  
-      const listing = await getListing(payload.params?.listingId,false);
-      const listingIds = await getListingIds();
-      return { listing,listingIds };
-    }
-
+  return { listingIds, listingId };
+};

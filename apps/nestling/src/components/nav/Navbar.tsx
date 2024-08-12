@@ -12,21 +12,20 @@ import {
   Typography,
 } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { RCAListing, RCAProperty } from "@Data/reatlorca/types";
+import { RCAProperty } from "@Data/reatlorca/types";
 import { useGetListingsQuery } from "@Services/listing";
+import { NListing } from "@Data/nestling/NListing";
 
 interface LoaderDataType {
   listingIds: string[];
-  listing: RCAListing;
+  listingId: string;
 }
 
 const NavBar = (props: any) => {
   const navigate = useNavigate();
-  const { listingIds, listing } = useLoaderData() as LoaderDataType;
+  const { listingIds, listingId } = useLoaderData() as LoaderDataType;
 
-  const { data, error, isLoading } = useGetListingsQuery();
-
-  const [listingId, setCurrentListingId] = React.useState("");
+  const [currentListingId, setCurrentListingId] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
     setCurrentListingId(event.target.value);
@@ -34,11 +33,10 @@ const NavBar = (props: any) => {
   };
 
   useEffect(() => {
-    if (listing.MlsNumber) {
-      setCurrentListingId(listing.MlsNumber);
+    if (listingId) {
+      setCurrentListingId(listingId);
     }
-  }, [listing.MlsNumber]);
-  console.log("sadasd", data, error, isLoading);
+  }, [listingId]);
 
   return (
     <>
@@ -55,10 +53,10 @@ const NavBar = (props: any) => {
                   Listings
                 </InputLabel>
                 <Select
-                  labelId="demo-select-small-label"
-                  id="demo-select-small"
+                  labelId="listing-selector-label"
+                  id="listing-selector"
                   sx={{ color: "white" }}
-                  value={listingId}
+                  value={currentListingId}
                   label="Listing"
                   onChange={handleChange}
                 >

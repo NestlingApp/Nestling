@@ -6,9 +6,10 @@ import { useCopyToClipboard } from "usehooks-ts";
 import { Square2StackIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { IconButton } from "@mui/material";
+import { NListing } from "@Data/nestling/NListing";
 
 interface PropertyDetailsCardProps {
-  property: RCAProperty;
+  property: NListing;
   mlsNumber: string;
 }
 
@@ -17,12 +18,11 @@ const PropertyDetailsCard = ({
   mlsNumber,
 }: PropertyDetailsCardProps) => {
   const [copiedText, copy] = useCopyToClipboard();
-  const formattedAddress = property.Address.AddressText.replace("|", " ");
+  const formattedAddress = property?.address.street_address.replace("|", " ");
 
   const handleCopy = (label: string, text: string) => {
     copy(text)
       .then(() => {
-        console.log("Copied!", { text });
         // openSnackbar(`${label} copied to clipboard`, [2000]);
       })
       .catch((error) => {

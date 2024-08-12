@@ -11,30 +11,30 @@ import { Slide } from "yet-another-react-lightbox/dist/types";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import { RCAProperty } from "data/reatlorca/types";
+
+import { NListing } from "@Data/nestling/NListing";
 
 interface HeroProps {
-  property: RCAProperty;
+  listing: NListing;
 }
 
-const Hero = ({ property }: HeroProps) => {
+const Hero = ({ listing }: HeroProps) => {
   const height = 315;
   const width = 500;
   const [isLightboxOpen, setIsLightboxOpen] = React.useState(false);
 
-  const slideImage: SlideImage = {
-    src: property?.Photo?.[0]?.HighResPath,
+  const slideImages: SlideImage[] = listing?.photos.map((photo) => ({
+    src: photo,
     width,
     height,
-  };
+  }));
 
-  const slides: Slide[] = [slideImage, slideImage, slideImage, slideImage];
   return (
     <>
       <Lightbox
         open={isLightboxOpen}
         close={() => setIsLightboxOpen(false)}
-        slides={slides}
+        slides={slideImages}
         thumbnails={{
           position: "end",
         }}
@@ -55,62 +55,71 @@ const Hero = ({ property }: HeroProps) => {
               <CardMedia
                 title="Relaxing app background"
                 sx={{ height: 500 }}
-                image={property?.Photo?.[0]?.HighResPath}
+                image={listing?.photos?.[0]}
               />
             </Card>
           </div>
           <div className="flex w-[500px] content-center flex-wrap justify-center ml-1 flex-col">
+            {/* TODO: fix css so can loop */}
             <div className="flex m-1 ">
-              <Card
-                className="m-1 w-[250px] h-[150px]"
-                onClick={() => {
-                  console.log("clicked", setIsLightboxOpen(true));
-                }}
-              >
-                <CardMedia
-                  title="Relaxing app background"
-                  className="z-0 w-full h-full object-cover"
-                  image={property?.Photo?.[0]?.HighResPath}
-                />
-              </Card>
-              <Card
-                className="m-1 w-[250px] h-[150px] "
-                onClick={() => {
-                  console.log("clicked", setIsLightboxOpen(true));
-                }}
-              >
-                <CardMedia
-                  title="Relaxing app background"
-                  className="z-0 w-full h-full object-cover"
-                  image={property?.Photo?.[0]?.HighResPath}
-                />
-              </Card>
+              {listing?.photos?.[1] && (
+                <Card
+                  className="m-1 w-[250px] h-[150px]"
+                  onClick={() => {
+                    console.log("clicked", setIsLightboxOpen(true));
+                  }}
+                >
+                  <CardMedia
+                    title="Relaxing app background"
+                    className="z-0 w-full h-full object-cover"
+                    image={listing?.photos?.[1]}
+                  />
+                </Card>
+              )}
+              {listing?.photos?.[2] && (
+                <Card
+                  className="m-1 w-[250px] h-[150px] "
+                  onClick={() => {
+                    console.log("clicked", setIsLightboxOpen(true));
+                  }}
+                >
+                  <CardMedia
+                    title="Relaxing app background"
+                    className="z-0 w-full h-full object-cover"
+                    image={listing?.photos?.[2]}
+                  />
+                </Card>
+              )}
             </div>
             <div className="flex m-1">
-              <Card
-                className="m-1 w-[250px] h-[150px]"
-                onClick={() => {
-                  console.log("clicked", setIsLightboxOpen(true));
-                }}
-              >
-                <CardMedia
-                  title="Relaxing app background"
-                  className="z-0 w-full h-full object-cover"
-                  image={property?.Photo?.[0]?.HighResPath}
-                />
-              </Card>
-              <Card
-                className="m-1 w-[250px] h-[150px]"
-                onClick={() => {
-                  console.log("clicked", setIsLightboxOpen(true));
-                }}
-              >
-                <CardMedia
-                  title="Relaxing app background"
-                  className="z-0 w-full h-full object-cover"
-                  image={property?.Photo?.[0]?.HighResPath}
-                />
-              </Card>
+              {listing?.photos?.[3] && (
+                <Card
+                  className="m-1 w-[250px] h-[150px]"
+                  onClick={() => {
+                    console.log("clicked", setIsLightboxOpen(true));
+                  }}
+                >
+                  <CardMedia
+                    title="Relaxing app background"
+                    className="z-0 w-full h-full object-cover"
+                    image={listing?.photos?.[3]}
+                  />
+                </Card>
+              )}
+              {listing?.photos?.[4] && (
+                <Card
+                  className="m-1 w-[250px] h-[150px]"
+                  onClick={() => {
+                    console.log("clicked", setIsLightboxOpen(true));
+                  }}
+                >
+                  <CardMedia
+                    title="Relaxing app background"
+                    className="z-0 w-full h-full object-cover"
+                    image={listing?.photos?.[4]}
+                  />
+                </Card>
+              )}
             </div>
           </div>
         </div>

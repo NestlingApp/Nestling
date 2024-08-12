@@ -8,16 +8,17 @@ import PropertySummaryCard from "./PropertySummaryCard";
 import { useLoaderData } from "react-router-dom";
 import CardLayout from "@Components/CardLayout";
 import { Box } from "@mui/material";
+import { NListing } from "@Data/nestling/NListing";
 
 interface LoaderDataType {
-  listing: RCAListing;
+  listing: NListing;
 }
 const PropertyPage = () => {
   const { listing } = useLoaderData() as LoaderDataType;
-  const property = listing.Property;
+
   return (
     <div className="flex flex-col mx-10">
-      <Hero property={property} />
+      <Hero listing={listing} />
       <Box
         sx={{
           display: "flex",
@@ -29,10 +30,10 @@ const PropertyPage = () => {
         <div className="max-w-screen-lg w-full">
           <SectionCard className="flex flex-row gap-3" title="Property Summary">
             <PropertyDetailsCard
-              property={property}
-              mlsNumber={listing.MlsNumber}
+              property={listing}
+              mlsNumber={listing.listing_id}
             />
-            <PropertySummaryCard summary={listing.PublicRemarks} />
+            <PropertySummaryCard summary={listing.description} />
           </SectionCard>
           <CardLayout data={listing} />
         </div>

@@ -8,6 +8,7 @@
             "@Data/*":["src/data/*"],
             "@Styles/*":["src/styles/*"],
             "@Services/*": ["src/services/*"],
+            "@/*": ["src/*"],
             "*": [
                 "src/*",
             ]
