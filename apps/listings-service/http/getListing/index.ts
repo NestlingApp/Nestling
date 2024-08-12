@@ -6,7 +6,7 @@ export default {
         {
             http:{
                 method: 'GET',
-                path: '/listings-service/listing/{mls}',
+                path: '/listings-service/listings/{mls}',
                 document: {
                     summary: 'Get listing by mls',
                     description: 'Get listing by mls',
