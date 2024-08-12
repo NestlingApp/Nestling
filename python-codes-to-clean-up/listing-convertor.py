@@ -1,5 +1,50 @@
 import json
 import os
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
+def scrape_listing_images_selenium(listing_url):
+    base_url = "https://www.realtor.ca"
+    full_url = f"{base_url}{listing_url}"
+
+    # Set up Selenium WebDriver with undetectable options
+    chrome_options = Options()
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    chrome_options.add_experimental_option('useAutomationExtension', False)
+    
+    # Optional: Add headless mode
+    # chrome_options.add_argument("--headless")
+
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+    driver.get(full_url)
+    
+    # Allow time for the page to load
+    time.sleep(15)
+
+    image_urls = []
+
+    try:
+        # Find the hero image
+        hero_image = driver.find_element(By.ID, 'heroImage')
+        if hero_image:
+            image_urls.append(hero_image.get_attribute('src'))
+        
+        # Find all grid images in the image grid container
+        grid_images = driver.find_elements(By.CLASS_NAME, 'topGridViewListingImage')
+        for img in grid_images:
+            image_urls.append(img.get_attribute('src'))
+
+    except Exception as e:
+        print(f"Error scraping images: {e}")
+    
+    finally:
+        driver.quit()  # Close the browser
+
+    return image_urls
 
 def transform_data(data):
     """Transform the JSON data to the specified format with comprehensive error handling."""
@@ -53,9 +98,19 @@ def transform_data(data):
     building_info = data.get('Building', {})
     individual_info = data.get('Individual', [{}])[0]
 
+    # # Select the appropriate listing URL
+    # listing_url = data.get("RelativeDetailsURL", "") or data.get("RelativeURLEn", "")
+
+    # # Fetch photos by scraping with Selenium
+    # photos = scrape_listing_images_selenium(listing_url)
+    # if not photos:
+        # photos: [p.get("HighResPath", "https://example.com/defaultphoto.jpg") for p in property_info.get("Photo", [])],
+
     transformed_data = {
         "property_id": data.get("Id", "Unknown"),
         "listing_id": data.get("MlsNumber", "Unknown"),
+        "RelativeDetailsURL": data.get("RelativeDetailsURL", ""),
+        "RelativeURLEn": data.get("RelativeURLEn", ""),
         "address": {
             "street_address": property_info.get("Address", {}).get("AddressText", "").split("|")[0],
             "city": property_info.get("Address", {}).get("AddressText", "").split(",")[0].split("|")[-1].strip(),
@@ -147,6 +202,7 @@ def transform_data(data):
             ]
         },
         "agents": agents,
+        # "photos": photos,
         "photos": [p.get("HighResPath", "https://example.com/defaultphoto.jpg") for p in property_info.get("Photo", [])],
         "virtual_tour": data.get("VirtualTourLink", "https://example.com/virtual_tour"),
         "open_house": {
@@ -159,7 +215,6 @@ def transform_data(data):
     }
 
     return transformed_data
-
 
 def process_files(source_directory, target_directory):
     """Process all json files in the specified source_directory."""
@@ -175,18 +230,20 @@ def process_files(source_directory, target_directory):
             if (mls_number == "Unknown"):
                 new_filename = 'converted ' + filename
             else:
-                new_filename = f"{mls_number}_{filename}.json"
+                new_filename = f"{mls_number}_{filename}"
                         
             new_file_path = os.path.join(target_directory, new_filename)
             with open(new_file_path, 'w') as file:
                 json.dump(transformed_data, file, indent=2)
 
             print(f"Processed and saved: {new_filename}")
+            
+        time.sleep(1)
 
 def main():
 
-    source_directory = './200properties'  # Set the directory containing your JSON files
-    target_directory = './converted'
+    source_directory = '/Users/josephzhu/Documents/Aivenger/code/200properties'  # Set the directory containing your JSON files
+    target_directory = '/Users/josephzhu/Documents/Aivenger/code/converted'
     process_files(source_directory, target_directory)
 
 if __name__ == '__main__':

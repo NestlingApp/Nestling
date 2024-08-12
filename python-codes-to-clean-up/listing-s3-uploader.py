@@ -27,7 +27,7 @@ def upload_files(directory, bucket_name):
                 print(f"Failed to upload {filename}. Reason: {str(e)}")
 
 def main():
-    directory = './converted'
+    directory = '/Users/josephzhu/Documents/Aivenger/code/converted'
     bucket_name = 'listings-data'
     upload_files(directory, bucket_name)
 

@@ -6,8 +6,6 @@ import os
 from datetime import datetime
 import boto3
 
-new
-
 def fetch_data(current_page):
     url = "https://api2.realtor.ca/Listing.svc/PropertySearch_Post"
 
@@ -54,7 +52,7 @@ def save_property_data(property_data):
     sanitized_address = sanitize_filename(address_text)
     filename = f"{sanitized_address}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     
-    directory = 'properties'
+    directory = '/Users/josephzhu/Documents/Aivenger/code/properties'
     os.makedirs(directory, exist_ok=True)
 
     filepath = os.path.join(directory, filename)
